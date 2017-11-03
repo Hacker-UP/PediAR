@@ -1,0 +1,7 @@
+use_frameworks!
+platform :ios, '11.0'
+
+target 'PediAR' do
+	pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
+	pod 'SnapKit', '~> 4.0.0'
+end

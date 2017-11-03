@@ -9,25 +9,29 @@
 /* Begin PBXBuildFile section */
 		24266D971FACDC7D00774E26 /* BubbleTextNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266D961FACDC7D00774E26 /* BubbleTextNode.swift */; };
 		24DDFCCD1FACCC5B004DF2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */; };
-		24DDFCCF1FACCC5B004DF2E8 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCCE1FACCC5B004DF2E8 /* art.scnassets */; };
 		24DDFCD11FACCC5B004DF2E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFCD01FACCC5B004DF2E8 /* ViewController.swift */; };
 		24DDFCD41FACCC5B004DF2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCD21FACCC5B004DF2E8 /* Main.storyboard */; };
 		24DDFCD61FACCC5B004DF2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCD51FACCC5B004DF2E8 /* Assets.xcassets */; };
 		24DDFCD91FACCC5B004DF2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCD71FACCC5B004DF2E8 /* LaunchScreen.storyboard */; };
 		24DDFCE11FACCCB5004DF2E8 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFCE01FACCCB5004DF2E8 /* Inceptionv3.mlmodel */; };
+		75B3E9661FACF11700E30DBE /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B3E9651FACF11700E30DBE /* LaunchViewController.swift */; };
+		D259A91434870E7C30D6729A /* Pods_PediAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943759198A75198AB5F60F0E /* Pods_PediAR.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		24266D961FACDC7D00774E26 /* BubbleTextNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleTextNode.swift; sourceTree = "<group>"; };
 		24DDFCC91FACCC5B004DF2E8 /* PediAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PediAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		24DDFCCE1FACCC5B004DF2E8 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		24DDFCD01FACCC5B004DF2E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		24DDFCD31FACCC5B004DF2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24DDFCD51FACCC5B004DF2E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24DDFCD81FACCC5B004DF2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24DDFCDA1FACCC5B004DF2E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24DDFCE01FACCCB5004DF2E8 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = SOURCE_ROOT; };
+		75B3E9651FACF11700E30DBE /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		943759198A75198AB5F60F0E /* Pods_PediAR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PediAR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8DF234C2706D9E504B574C9 /* Pods-PediAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PediAR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PediAR/Pods-PediAR.debug.xcconfig"; sourceTree = "<group>"; };
+		EE674ED64337DC24A639D355 /* Pods-PediAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PediAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-PediAR/Pods-PediAR.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D259A91434870E7C30D6729A /* Pods_PediAR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,8 @@
 			children = (
 				24DDFCCB1FACCC5B004DF2E8 /* PediAR */,
 				24DDFCCA1FACCC5B004DF2E8 /* Products */,
+				4B772208AD624BFFB63DFEFB /* Pods */,
+				37DF24D07E464C7753568A37 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,9 +68,9 @@
 			isa = PBXGroup;
 			children = (
 				24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */,
-				24DDFCCE1FACCC5B004DF2E8 /* art.scnassets */,
 				24DDFCD01FACCC5B004DF2E8 /* ViewController.swift */,
 				24266D961FACDC7D00774E26 /* BubbleTextNode.swift */,
+				75B3E9651FACF11700E30DBE /* LaunchViewController.swift */,
 				24DDFCD21FACCC5B004DF2E8 /* Main.storyboard */,
 				24DDFCD51FACCC5B004DF2E8 /* Assets.xcassets */,
 				24DDFCD71FACCC5B004DF2E8 /* LaunchScreen.storyboard */,
@@ -73,6 +80,23 @@
 			path = PediAR;
 			sourceTree = "<group>";
 		};
+		37DF24D07E464C7753568A37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				943759198A75198AB5F60F0E /* Pods_PediAR.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4B772208AD624BFFB63DFEFB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A8DF234C2706D9E504B574C9 /* Pods-PediAR.debug.xcconfig */,
+				EE674ED64337DC24A639D355 /* Pods-PediAR.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24DDFCDD1FACCC5B004DF2E8 /* Build configuration list for PBXNativeTarget "PediAR" */;
 			buildPhases = (
+				FCCED59BBF5509988AEDD76A /* [CP] Check Pods Manifest.lock */,
 				24DDFCC51FACCC5B004DF2E8 /* Sources */,
 				24DDFCC61FACCC5B004DF2E8 /* Frameworks */,
 				24DDFCC71FACCC5B004DF2E8 /* Resources */,
+				278C1930B040C1D3B941DB05 /* [CP] Embed Pods Frameworks */,
+				A642BE2EBACA39C8BC280979 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,7 +159,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24DDFCCF1FACCC5B004DF2E8 /* art.scnassets in Resources */,
 				24DDFCD91FACCC5B004DF2E8 /* LaunchScreen.storyboard in Resources */,
 				24DDFCD61FACCC5B004DF2E8 /* Assets.xcassets in Resources */,
 				24DDFCD41FACCC5B004DF2E8 /* Main.storyboard in Resources */,
@@ -140,6 +166,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		278C1930B040C1D3B941DB05 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PediAR/Pods-PediAR-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PediAR/Pods-PediAR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A642BE2EBACA39C8BC280979 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PediAR/Pods-PediAR-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCCED59BBF5509988AEDD76A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PediAR-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		24DDFCC51FACCC5B004DF2E8 /* Sources */ = {
@@ -150,6 +232,7 @@
 				24DDFCE11FACCCB5004DF2E8 /* Inceptionv3.mlmodel in Sources */,
 				24266D971FACDC7D00774E26 /* BubbleTextNode.swift in Sources */,
 				24DDFCCD1FACCC5B004DF2E8 /* AppDelegate.swift in Sources */,
+				75B3E9661FACF11700E30DBE /* LaunchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,10 +367,11 @@
 		};
 		24DDFCDE1FACCC5B004DF2E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8DF234C2706D9E504B574C9 /* Pods-PediAR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VEBQ28K9EA;
+				DEVELOPMENT_TEAM = DNL5G5M9A8;
 				INFOPLIST_FILE = PediAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.krayc.PediAR;
@@ -299,10 +383,11 @@
 		};
 		24DDFCDF1FACCC5B004DF2E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE674ED64337DC24A639D355 /* Pods-PediAR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VEBQ28K9EA;
+				DEVELOPMENT_TEAM = DNL5G5M9A8;
 				INFOPLIST_FILE = PediAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.krayc.PediAR;
