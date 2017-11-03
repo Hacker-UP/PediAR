@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24266D971FACDC7D00774E26 /* BubbleTextNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266D961FACDC7D00774E26 /* BubbleTextNode.swift */; };
 		24DDFCCD1FACCC5B004DF2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */; };
 		24DDFCCF1FACCC5B004DF2E8 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCCE1FACCC5B004DF2E8 /* art.scnassets */; };
 		24DDFCD11FACCC5B004DF2E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFCD01FACCC5B004DF2E8 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24266D961FACDC7D00774E26 /* BubbleTextNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleTextNode.swift; sourceTree = "<group>"; };
 		24DDFCC91FACCC5B004DF2E8 /* PediAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PediAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24DDFCCE1FACCC5B004DF2E8 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */,
 				24DDFCCE1FACCC5B004DF2E8 /* art.scnassets */,
 				24DDFCD01FACCC5B004DF2E8 /* ViewController.swift */,
+				24266D961FACDC7D00774E26 /* BubbleTextNode.swift */,
 				24DDFCD21FACCC5B004DF2E8 /* Main.storyboard */,
 				24DDFCD51FACCC5B004DF2E8 /* Assets.xcassets */,
 				24DDFCD71FACCC5B004DF2E8 /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 			files = (
 				24DDFCD11FACCC5B004DF2E8 /* ViewController.swift in Sources */,
 				24DDFCE11FACCCB5004DF2E8 /* Inceptionv3.mlmodel in Sources */,
+				24266D971FACDC7D00774E26 /* BubbleTextNode.swift in Sources */,
 				24DDFCCD1FACCC5B004DF2E8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
