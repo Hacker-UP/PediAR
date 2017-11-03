@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ta8-vF-ELS">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="GQv-oi-DeZ">
+            <objects>
+                <viewController id="ta8-vF-ELS" customClass="ViewController" customModule="PediAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YC1-I0-12S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tdc-z5-Mcd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </arscnView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vys-wp-jsE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.51875535100000003" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="RB3-b7-lUc"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmj-dv-b5w">
+                                <rect key="frame" x="176" y="322" width="22" height="22"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tdc-z5-Mcd" firstAttribute="top" secondItem="YC1-I0-12S" secondAttribute="top" id="5HQ-tw-JGj"/>
+                            <constraint firstItem="vys-wp-jsE" firstAttribute="leading" secondItem="KMN-qt-Jiy" secondAttribute="leading" id="6aT-eV-xj7"/>
+                            <constraint firstItem="Tdc-z5-Mcd" firstAttribute="trailing" secondItem="KMN-qt-Jiy" secondAttribute="trailing" id="8Vn-Lt-rFQ"/>
+                            <constraint firstItem="vys-wp-jsE" firstAttribute="top" secondItem="YC1-I0-12S" secondAttribute="top" id="9np-TF-DcL"/>
+                            <constraint firstItem="cmj-dv-b5w" firstAttribute="centerY" secondItem="YC1-I0-12S" secondAttribute="centerY" id="OpC-w6-AJZ"/>
+                            <constraint firstItem="cmj-dv-b5w" firstAttribute="centerX" secondItem="YC1-I0-12S" secondAttribute="centerX" id="QyW-Np-dbH"/>
+                            <constraint firstItem="Tdc-z5-Mcd" firstAttribute="leading" secondItem="KMN-qt-Jiy" secondAttribute="leading" id="Z1q-GF-ZgP"/>
+                            <constraint firstItem="Tdc-z5-Mcd" firstAttribute="bottom" secondItem="KMN-qt-Jiy" secondAttribute="bottom" id="c2z-ba-yIX"/>
+                            <constraint firstItem="vys-wp-jsE" firstAttribute="trailing" secondItem="KMN-qt-Jiy" secondAttribute="trailing" id="dpb-gk-lxR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KMN-qt-Jiy"/>
+                    </view>
+                    <connections>
+                        <outlet property="debugTextView" destination="vys-wp-jsE" id="qMc-ZN-xZ0"/>
+                        <outlet property="sceneView" destination="Tdc-z5-Mcd" id="CTu-Wf-jEy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XA0-MZ-NUb" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="137.18140929535232"/>
+        </scene>
+    </scenes>
+</document>
