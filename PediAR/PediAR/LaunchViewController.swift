@@ -11,6 +11,8 @@ import SnapKit
 
 class LaunchViewController: UIViewController {
     
+    let kAnimationDuration = 0.3
+    
     fileprivate let flickIconButton: UIButton = {
         var button = UIButton()
         button.setImage(UIImage(named: "flick-button"), for: .normal)
@@ -24,6 +26,8 @@ class LaunchViewController: UIViewController {
         button.addTarget(self, action: #selector(toVR), for: .touchUpInside)
         return button
     }()
+    
+    @IBOutlet weak var instructionLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +37,12 @@ class LaunchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIView.animate(withDuration: 0.3) { self.flickIconButton.alpha = 0 }
+        UIView.animate(withDuration: kAnimationDuration) {
+            self.flickIconButton.alpha = 0
+        }
+        UIView.animate(withDuration: kAnimationDuration, delay: kAnimationDuration, options: .curveEaseInOut, animations: {
+            self.instructionLabel.alpha = 1
+        }, completion: nil)
     }
     
     private func initialViews() {

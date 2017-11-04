@@ -68,6 +68,7 @@ class BubbleTextNode: SCNNode {
         let backgroundNode = SCNNode(geometry: backgroundBox)
         bubbleNode.position = SCNVector3(0, -0.01, bubbleDepth)
         backgroundNode.addChildNode(bubbleNode)
+        backgroundNode.name = "backgroundNode"
         
         self.addChildNode(backgroundNode)
         

@@ -7,5 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
-let ibm_key = "df753136ed49e8782c30fb90359b052fd70f85ae"
+let kIBMKey = "df753136ed49e8782c30fb90359b052fd70f85ae"
+let kScreenWidth = CGFloat.minimum(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
+let kScreenHeight = CGFloat.maximum(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
+let kScreenBounds = UIScreen.main.bounds

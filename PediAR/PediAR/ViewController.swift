@@ -39,10 +39,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // SCNAction
     var foreverBounceAction: SCNAction!
     
+    // 镜头动画
+    var cameraAnimation: LOTAnimationView = LOTAnimationView()
+    
     // CoreML
     var visionRequests = [VNRequest]()
     let dispatchQueueML = DispatchQueue(label: "com.hw.dispatchqueueml") // A Serial Queue
     @IBOutlet weak var debugTextView: UITextView!
+    
+    private let squareRect: CGRect = {
+        return CGRect(x: 0, y: 0.5 * (kScreenHeight - kScreenWidth), width: kScreenWidth, height: kScreenWidth)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,16 +89,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         loopCoreMLUpdate()
         
         setUpActions()
-        
-        let apiKey = ibm_key
-        let version = "2017-11-04" // use today's date for the most recent version
-        let visualRecognition = VisualRecognition(apiKey: apiKey, version: version)
-        
-        let url = "http://mpic.tiankong.com/e91/c4c/e91c4c22674f98dd384fa40ae1417e99/640.jpg"
-        let failure = { (error: Error) in print(error) }
-        visualRecognition.classify(image: url, language: "en", failure: failure) { classifiedImages in
-            print(classifiedImages.images.first?.classifiers.first?.classes.map { ($0.classification, $0.score) })
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,7 +107,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.run(configuration)
         
         // 增加镜头动画
-        let cameraAnimation = LOTAnimationView(name: "camera")
+        cameraAnimation = LOTAnimationView(name: "camera")
         cameraAnimation.alpha = 0.1
         cameraAnimation.loopAnimation = true
         view.addSubview(cameraAnimation)
@@ -148,6 +145,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Draw the square frame
+        let rectPath = UIBezierPath(rect: squareRect)
+        rectPath.lineWidth = 1.5
+        rectPath.lineCapStyle = .square
+        rectPath.lineJoinStyle = .miter
+        let layer = CAShapeLayer()
+        layer.path = rectPath.cgPath
+        layer.fillColor = UIColor.clear.cgColor
+        layer.strokeColor = UIColor.init(red: 34.0/255.0, green: 196.0/255.0, blue: 228.0/255.0, alpha: 1.0).cgColor
+        rectPath.stroke()
+        sceneView.layer.addSublayer(layer)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -179,40 +192,65 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // MARK: - Interaction
     
     @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
+        
+        screenshotAction()
+        
+//        let screenCenter = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
+//        let arHitTestResults: [ARHitTestResult] = sceneView.hitTest(screenCenter, types: [.featurePoint])
+        
+//        if let closestResult = arHitTestResults.first {
+//            // Get Coordinates of HitTest
+//            let transform: matrix_float4x4 = closestResult.worldTransform
+//            var currentPosition: SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
+//
+//            ImageClassifier.shared.classifyImage(with: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Pembroke_Welsh_Corgi_frontal.jpg/912px-Pembroke_Welsh_Corgi_frontal.jpg", completion: {
+//                print($0.map { ($0.name, $0.score) })
+//
+//                for tuple in $0 {
+//                    let lastNode = self.addNode(with: tuple.name, at: currentPosition)
+//                    let boxNode = lastNode.childNode(withName: "backgroundNode", recursively: true)
+//                    let box = boxNode?.geometry as? SCNBox
+//                    currentPosition.x += Float(((box?.width)! / 2 + 0.05))
+//                }
+//            })
+//        }
+        
         let screenCenter: CGPoint = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
-        
+
         let arHitTestResults: [ARHitTestResult] = sceneView.hitTest(screenCenter, types: [.featurePoint])
-        
+
         if let closestResult = arHitTestResults.first {
             // Get Coordinates of HitTest
             let transform: matrix_float4x4 = closestResult.worldTransform
             let worldCoordinate: SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
-            
+
             print(worldCoordinate)
-            
-            for node in scnNodes {
-                print(node.name ?? "", node.position)
-            }
-            
+
             // Remove the tapped node
             var flag = false
-            for node in scnNodes where node.position.distance(from: worldCoordinate) <= 0.1 {
+            for node in scnNodes where node.position.distance(from: worldCoordinate) <= 0.15 {
                 node.removeFromParentNode()
                 scnNodes.remove(node)
                 flag = true
             }
-            
+
             // Add a node if no node needs to be removed
             if !flag {
-                let node: SCNNode = BubbleTextNode(text: latestPrediction, at: worldCoordinate)
-                node.position = worldCoordinate
-                
-                sceneView.scene.rootNode.addChildNode(node)
-                node.runAction(foreverBounceAction)
-                
-                scnNodes.insert(node)
+                addNode(with: latestPrediction, at: worldCoordinate)
             }
         }
+    }
+    
+    func addNode(with text: String, at position: SCNVector3) -> SCNNode {
+        let node: SCNNode = BubbleTextNode(text: text, at: position)
+        node.position = position
+        
+        sceneView.scene.rootNode.addChildNode(node)
+        node.runAction(foreverBounceAction)
+        
+        scnNodes.insert(node)
+        
+        return node
     }
     
     // MARK: - CoreML Vision Handling
@@ -280,6 +318,31 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         } catch {
             print(error)
         }
+    }
+    
+}
+
+extension ViewController {
+    
+    func screenshotAction() -> UIImage {
+        cameraAnimation.isHidden = true
+        
+        let scale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(kScreenBounds.size, false, scale)
+        self.sceneView.drawHierarchy(in: kScreenBounds, afterScreenUpdates: true)
+        
+        var image = UIGraphicsGetImageFromCurrentImageContext()
+        image = image?.getSubImage(rect: squareRect, scale: scale)
+        UIGraphicsEndImageContext()
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 60, width: 200, height: 200))
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFill
+        sceneView.addSubview(imageView)
+        
+        cameraAnimation.isHidden = false
+        
+        return image!
     }
     
 }

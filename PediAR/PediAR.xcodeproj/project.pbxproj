@@ -15,6 +15,8 @@
 		24266DA11FAD452900774E26 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266DA01FAD452900774E26 /* UIColorExtension.swift */; };
 		24266DA71FAD507F00774E26 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266DA61FAD507F00774E26 /* Constant.swift */; };
 		24266DAD1FAD589D00774E26 /* VisualRecognitionV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24266DA81FAD544400774E26 /* VisualRecognitionV3.framework */; };
+		24266DB11FAD658000774E26 /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266DB01FAD658000774E26 /* ImageClassifier.swift */; };
+		24266DB31FAD772D00774E26 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266DB21FAD772D00774E26 /* UIImageExtension.swift */; };
 		24DDFCCD1FACCC5B004DF2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */; };
 		24DDFCD41FACCC5B004DF2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCD21FACCC5B004DF2E8 /* Main.storyboard */; };
 		24DDFCD61FACCC5B004DF2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCD51FACCC5B004DF2E8 /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		24266DA01FAD452900774E26 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		24266DA61FAD507F00774E26 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		24266DA81FAD544400774E26 /* VisualRecognitionV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VisualRecognitionV3.framework; path = Carthage/Build/iOS/VisualRecognitionV3.framework; sourceTree = "<group>"; };
+		24266DB01FAD658000774E26 /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
+		24266DB21FAD772D00774E26 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		24DDFCC91FACCC5B004DF2E8 /* PediAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PediAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24DDFCD31FACCC5B004DF2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,6 +73,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24266DB41FAD800800774E26 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				24266D9A1FAD3DB300774E26 /* FloatExtension.swift */,
+				24266D9C1FAD427200774E26 /* SCNVector3Extension.swift */,
+				24266D9E1FAD435400774E26 /* UIFontExtension.swift */,
+				24266DA01FAD452900774E26 /* UIColorExtension.swift */,
+				24266DB21FAD772D00774E26 /* UIImageExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		24DDFCC01FACCC5B004DF2E8 = {
 			isa = PBXGroup;
 			children = (
@@ -96,15 +112,13 @@
 				75B3E9751FAD767D00E30DBE /* ViewControllerHelper.swift */,
 				24266D961FACDC7D00774E26 /* BubbleTextNode.swift */,
 				75B3E9651FACF11700E30DBE /* LaunchViewController.swift */,
+				24266DB01FAD658000774E26 /* ImageClassifier.swift */,
 				24DDFCD21FACCC5B004DF2E8 /* Main.storyboard */,
 				24DDFCD51FACCC5B004DF2E8 /* Assets.xcassets */,
 				24DDFCD71FACCC5B004DF2E8 /* LaunchScreen.storyboard */,
 				24DDFCDA1FACCC5B004DF2E8 /* Info.plist */,
 				24DDFCE01FACCCB5004DF2E8 /* Inceptionv3.mlmodel */,
-				24266D9A1FAD3DB300774E26 /* FloatExtension.swift */,
-				24266D9C1FAD427200774E26 /* SCNVector3Extension.swift */,
-				24266D9E1FAD435400774E26 /* UIFontExtension.swift */,
-				24266DA01FAD452900774E26 /* UIColorExtension.swift */,
+				24266DB41FAD800800774E26 /* Extensions */,
 				24266DA61FAD507F00774E26 /* Constant.swift */,
 				75B3E9691FAD409000E30DBE /* Lottie-json */,
 			);
@@ -301,6 +315,7 @@
 			files = (
 				75B3E9711FAD4F8E00E30DBE /* DataItemCollectionViewCell.swift in Sources */,
 				24266D991FAD3B7100774E26 /* ViewController.swift in Sources */,
+				24266DB11FAD658000774E26 /* ImageClassifier.swift in Sources */,
 				24DDFCE11FACCCB5004DF2E8 /* Inceptionv3.mlmodel in Sources */,
 				24266D9F1FAD435400774E26 /* UIFontExtension.swift in Sources */,
 				24266D9B1FAD3DB300774E26 /* FloatExtension.swift in Sources */,
@@ -312,6 +327,7 @@
 				75B3E9761FAD767D00E30DBE /* ViewControllerHelper.swift in Sources */,
 				75B3E9661FACF11700E30DBE /* LaunchViewController.swift in Sources */,
 				75B3E9681FAD3B0000E30DBE /* DataItemsView.swift in Sources */,
+				24266DB31FAD772D00774E26 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,7 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DNL5G5M9A8;
+				DEVELOPMENT_TEAM = VEBQ28K9EA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -470,7 +486,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DNL5G5M9A8;
+				DEVELOPMENT_TEAM = VEBQ28K9EA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
