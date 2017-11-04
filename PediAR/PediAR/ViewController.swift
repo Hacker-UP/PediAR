@@ -9,12 +9,12 @@
 import UIKit
 import SceneKit
 import ARKit
-
+import VisualRecognitionV3
 import Vision
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
-    // SCENE
+    // Scene
     @IBOutlet var sceneView: ARSCNView!
     var latestPrediction : String = "…" // a variable containing the latest CoreML prediction
     
@@ -23,7 +23,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // SCNAction
     var foreverBounceAction: SCNAction!
     
-    // COREML
+    // CoreML
     var visionRequests = [VNRequest]()
     let dispatchQueueML = DispatchQueue(label: "com.hw.dispatchqueueml") // A Serial Queue
     @IBOutlet weak var debugTextView: UITextView!
@@ -43,9 +43,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         
-        // Enable Default Lighting - makes the 3D text a bit poppier.
-        sceneView.autoenablesDefaultLighting = true
-        
         // Tap Gesture Recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(gestureRecognize:)))
         view.addGestureRecognizer(tapGesture)
@@ -57,13 +54,25 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set up Vision-CoreML Request
         let classificationRequest = VNCoreMLRequest(model: selectedModel, completionHandler: classificationCompleteHandler)
-        classificationRequest.imageCropAndScaleOption = VNImageCropAndScaleOption.centerCrop // Crop from centre of images and scale to appropriate size.
+        // Crop from centre of images and scale to appropriate size.
+        classificationRequest.imageCropAndScaleOption = VNImageCropAndScaleOption.centerCrop
+        
         visionRequests = [classificationRequest]
         
         // Begin Loop to Update CoreML
         loopCoreMLUpdate()
         
         setUpActions()
+        
+        let apiKey = ibm_key
+        let version = "2017-11-04" // use today's date for the most recent version
+        let visualRecognition = VisualRecognition(apiKey: apiKey, version: version)
+        
+        let url = "http://mpic.tiankong.com/e91/c4c/e91c4c22674f98dd384fa40ae1417e99/640.jpg"
+        let failure = { (error: Error) in print(error) }
+        visualRecognition.classify(image: url, language: "en", failure: failure) { classifiedImages in
+            print(classifiedImages.images.first?.classifiers.first?.classes.map { ($0.classification, $0.score) })
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +83,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Enable plane detection
         configuration.planeDetection = .horizontal
+        
+        // Enable light estimation
+        configuration.isLightEstimationEnabled = true
         
         // Run the view's session
         sceneView.session.run(configuration)
@@ -124,11 +136,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         if let closestResult = arHitTestResults.first {
             // Get Coordinates of HitTest
             let transform: matrix_float4x4 = closestResult.worldTransform
-            let worldCoord: SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
+            let worldCoordinate: SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
+            
+            print(worldCoordinate)
+            
+            for node in scnNodes {
+                print(node.name ?? "", node.position)
+            }
             
             // Remove the tapped node
             var flag = false
-            for node in scnNodes where node.position.distance(from: worldCoord) <= 0.1 {
+            for node in scnNodes where node.position.distance(from: worldCoordinate) <= 0.1 {
                 node.removeFromParentNode()
                 scnNodes.remove(node)
                 flag = true
@@ -136,8 +154,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             // Add a node if no node needs to be removed
             if !flag {
-                let node: SCNNode = BubbleTextNode(text: latestPrediction)
-                node.position = worldCoord
+                let node: SCNNode = BubbleTextNode(text: latestPrediction, at: worldCoordinate)
+                node.position = worldCoordinate
                 
                 sceneView.scene.rootNode.addChildNode(node)
                 node.runAction(foreverBounceAction)

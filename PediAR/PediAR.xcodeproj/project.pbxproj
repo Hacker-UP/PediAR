@@ -12,6 +12,10 @@
 		24266D9B1FAD3DB300774E26 /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266D9A1FAD3DB300774E26 /* FloatExtension.swift */; };
 		24266D9D1FAD427200774E26 /* SCNVector3Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266D9C1FAD427200774E26 /* SCNVector3Extension.swift */; };
 		24266D9F1FAD435400774E26 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266D9E1FAD435400774E26 /* UIFontExtension.swift */; };
+		24266DA11FAD452900774E26 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266DA01FAD452900774E26 /* UIColorExtension.swift */; };
+		24266DA51FAD469700774E26 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 24266DA41FAD469600774E26 /* art.scnassets */; };
+		24266DA71FAD507F00774E26 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266DA61FAD507F00774E26 /* Constant.swift */; };
+		24266DAD1FAD589D00774E26 /* VisualRecognitionV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24266DA81FAD544400774E26 /* VisualRecognitionV3.framework */; };
 		24DDFCCD1FACCC5B004DF2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */; };
 		24DDFCD41FACCC5B004DF2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCD21FACCC5B004DF2E8 /* Main.storyboard */; };
 		24DDFCD61FACCC5B004DF2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCD51FACCC5B004DF2E8 /* Assets.xcassets */; };
@@ -27,6 +31,10 @@
 		24266D9A1FAD3DB300774E26 /* FloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatExtension.swift; sourceTree = "<group>"; };
 		24266D9C1FAD427200774E26 /* SCNVector3Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extension.swift; sourceTree = "<group>"; };
 		24266D9E1FAD435400774E26 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		24266DA01FAD452900774E26 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		24266DA41FAD469600774E26 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		24266DA61FAD507F00774E26 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		24266DA81FAD544400774E26 /* VisualRecognitionV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VisualRecognitionV3.framework; path = Carthage/Build/iOS/VisualRecognitionV3.framework; sourceTree = "<group>"; };
 		24DDFCC91FACCC5B004DF2E8 /* PediAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PediAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24DDFCD31FACCC5B004DF2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24266DAD1FAD589D00774E26 /* VisualRecognitionV3.framework in Frameworks */,
 				D259A91434870E7C30D6729A /* Pods_PediAR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +82,7 @@
 		24DDFCCB1FACCC5B004DF2E8 /* PediAR */ = {
 			isa = PBXGroup;
 			children = (
+				24266DA41FAD469600774E26 /* art.scnassets */,
 				24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */,
 				24266D981FAD3B7100774E26 /* ViewController.swift */,
 				24266D961FACDC7D00774E26 /* BubbleTextNode.swift */,
@@ -85,6 +95,8 @@
 				24266D9A1FAD3DB300774E26 /* FloatExtension.swift */,
 				24266D9C1FAD427200774E26 /* SCNVector3Extension.swift */,
 				24266D9E1FAD435400774E26 /* UIFontExtension.swift */,
+				24266DA01FAD452900774E26 /* UIColorExtension.swift */,
+				24266DA61FAD507F00774E26 /* Constant.swift */,
 			);
 			path = PediAR;
 			sourceTree = "<group>";
@@ -92,6 +104,7 @@
 		37DF24D07E464C7753568A37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24266DA81FAD544400774E26 /* VisualRecognitionV3.framework */,
 				943759198A75198AB5F60F0E /* Pods_PediAR.framework */,
 			);
 			name = Frameworks;
@@ -119,6 +132,7 @@
 				24DDFCC71FACCC5B004DF2E8 /* Resources */,
 				278C1930B040C1D3B941DB05 /* [CP] Embed Pods Frameworks */,
 				A642BE2EBACA39C8BC280979 /* [CP] Copy Pods Resources */,
+				24266DAE1FAD58B100774E26 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -169,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24DDFCD91FACCC5B004DF2E8 /* LaunchScreen.storyboard in Resources */,
+				24266DA51FAD469700774E26 /* art.scnassets in Resources */,
 				24DDFCD61FACCC5B004DF2E8 /* Assets.xcassets in Resources */,
 				24DDFCD41FACCC5B004DF2E8 /* Main.storyboard in Resources */,
 			);
@@ -177,6 +192,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		24266DAE1FAD58B100774E26 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/VisualRecognitionV3.framework",
+			);
+			name = "Run Script";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/VisualRecognitionV3.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		278C1930B040C1D3B941DB05 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,7 +273,9 @@
 				24266D9F1FAD435400774E26 /* UIFontExtension.swift in Sources */,
 				24266D9B1FAD3DB300774E26 /* FloatExtension.swift in Sources */,
 				24266D971FACDC7D00774E26 /* BubbleTextNode.swift in Sources */,
+				24266DA11FAD452900774E26 /* UIColorExtension.swift in Sources */,
 				24266D9D1FAD427200774E26 /* SCNVector3Extension.swift in Sources */,
+				24266DA71FAD507F00774E26 /* Constant.swift in Sources */,
 				24DDFCCD1FACCC5B004DF2E8 /* AppDelegate.swift in Sources */,
 				75B3E9661FACF11700E30DBE /* LaunchViewController.swift in Sources */,
 			);
@@ -384,6 +417,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VEBQ28K9EA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PediAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.krayc.PediAR;
@@ -400,6 +437,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VEBQ28K9EA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PediAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.krayc.PediAR;

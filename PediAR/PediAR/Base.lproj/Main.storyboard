@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tdc-z5-Mcd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
                             </arscnView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vys-wp-jsE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
@@ -60,7 +60,7 @@
                             <constraint firstItem="cmj-dv-b5w" firstAttribute="centerY" secondItem="YC1-I0-12S" secondAttribute="centerY" id="OpC-w6-AJZ"/>
                             <constraint firstItem="cmj-dv-b5w" firstAttribute="centerX" secondItem="YC1-I0-12S" secondAttribute="centerX" id="QyW-Np-dbH"/>
                             <constraint firstItem="Tdc-z5-Mcd" firstAttribute="leading" secondItem="KMN-qt-Jiy" secondAttribute="leading" id="Z1q-GF-ZgP"/>
-                            <constraint firstItem="Tdc-z5-Mcd" firstAttribute="bottom" secondItem="KMN-qt-Jiy" secondAttribute="bottom" id="c2z-ba-yIX"/>
+                            <constraint firstItem="Tdc-z5-Mcd" firstAttribute="bottom" secondItem="YC1-I0-12S" secondAttribute="bottom" constant="-100" id="c2z-ba-yIX"/>
                             <constraint firstItem="vys-wp-jsE" firstAttribute="trailing" secondItem="KMN-qt-Jiy" secondAttribute="trailing" id="dpb-gk-lxR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KMN-qt-Jiy"/>
