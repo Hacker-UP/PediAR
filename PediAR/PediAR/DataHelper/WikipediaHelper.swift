@@ -32,6 +32,7 @@ class WikipediaHelper: NSObject {
                     completion(repo)
                 } else {
                     print("JSON parse failed")
+                    completion(nil)
                 }
             }.resume()
         }

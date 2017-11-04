@@ -13,6 +13,9 @@ import VisualRecognitionV3
 import Vision
 import Lottie
 import SnapKit
+import Toast_Swift
+import TagListView
+import SafariServices
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
@@ -32,12 +35,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     // SCENE
     @IBOutlet var sceneView: ARSCNView!
-    var latestPrediction : String = "…" // a variable containing the latest CoreML prediction
+    var latestPrediction: String = "" // a variable containing the latest CoreML prediction
     
     var scnNodes: Set = Set<SCNNode>()
     
     // SCNAction
     var foreverBounceAction: SCNAction!
+    
+    var tagListView: TagListView = TagListView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 20))
     
     // 镜头动画
     var cameraAnimation: LOTAnimationView = LOTAnimationView()
@@ -45,7 +50,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // CoreML
     var visionRequests = [VNRequest]()
     let dispatchQueueML = DispatchQueue(label: "com.hw.dispatchqueueml") // A Serial Queue
-    @IBOutlet weak var debugTextView: UITextView!
     
     private let squareRect: CGRect = {
         return CGRect(x: 0, y: 0.5 * (kScreenHeight - kScreenWidth), width: kScreenWidth, height: kScreenWidth)
@@ -58,7 +62,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+//        sceneView.showsStatistics = true
         
         // Create a new scene
         let scene = SCNScene()
@@ -81,9 +85,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         classificationRequest.imageCropAndScaleOption = VNImageCropAndScaleOption.centerCrop
         
         visionRequests = [classificationRequest]
-        
-        // 防止键盘弹出
-        debugTextView.isUserInteractionEnabled = false
         
         // Begin Loop to Update CoreML
         loopCoreMLUpdate()
@@ -128,15 +129,35 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             make.height.equalTo(100)
         }
         
+        view.addSubview(tagListView)
+        tagListView.snp.makeConstraints { make in
+            make.left.right.equalTo(view)
+            make.bottom.equalTo(dataItems.snp.top).offset(0)
+            make.height.greaterThanOrEqualTo(20)
+        }
+        tagListView.backgroundColor = UIColor(white: 0, alpha: 0.48)
+        
+        tagListView.textFont = UIFont(name: "PingFangSC-Regular", size: 18.0)!
+        tagListView.textColor = .white
+        tagListView.tagBackgroundColor = .clear
+        tagListView.borderColor = .white
+        tagListView.alignment = .left
+        tagListView.cornerRadius = 5.0
+        tagListView.marginX = 5.0
+        tagListView.paddingX = 10.0
+        tagListView.tagLineBreakMode = .byWordWrapping
+        tagListView.delegate = self
+        tagListView.removeAllTags()
+        
         // 开关按钮
         view.addSubview(switchButton)
         switchButton.snp.makeConstraints { make in
-            make.centerX.equalTo(dataItems.snp.centerX)
-            make.bottom.equalTo(dataItems.snp.top).offset(-10)
+            make.centerX.equalTo(tagListView.snp.centerX)
+            make.bottom.equalTo(tagListView.snp.top).offset(-10)
             make.height.width.equalTo(35)
         }
         
-//        NLPUnderstandingHelper.shared.analyze(text: "In computing, a computer keyboard is a typewriter-style device which uses an arrangement of buttons or keys to act as a mechanical lever or electronic switch. Following the decline of punch cards and paper tape, interaction via teleprinter-style keyboards became the main input device for computers.\nA keyboard typically has characters engraved or printed on the keys (buttons) and each press of a key typically corresponds to a single written symbol. However, to produce some symbols requires pressing and holding several keys simultaneously or in sequence. While most keyboard keys produce letters, numbers or signs (characters), other keys or simultaneous key presses can produce actions or execute computer commands.\nDespite the development of alternative input devices, such as the mouse, touchscreen, pen devices, character recognition and voice recognition, the keyboard remains the most commonly used device for direct (human) input of alphanumeric data into computers.\nIn normal usage, the keyboard is used as a text entry interface to type text and numbers into a word processor, text editor or other programs. In a modern computer, the interpretation of key presses is generally left to the software.")
+        controlMenu()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -164,13 +185,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let layer = CAShapeLayer()
         layer.path = rectPath.cgPath
         layer.fillColor = UIColor.clear.cgColor
-        layer.strokeColor = UIColor.init(red: 34.0/255.0, green: 196.0/255.0, blue: 228.0/255.0, alpha: 1.0).cgColor
+        layer.strokeColor = UIColor.init(red: 34.0/255.0, green: 196.0/255.0, blue: 228.0/255.0, alpha: 0.7).cgColor
         rectPath.stroke()
         sceneView.layer.addSublayer(layer)
         
-//        WikipediaHelper.shared.getSummary(of: "Computer Keyboard") { (model) in
-//            print(model?.title ?? "no title")
-//        }
+        ToastManager.shared.style.verticalPadding = 40.0
+        
+        sceneView.makeToast("Move your iPhone and aim at an object\nPlace object in the blue frame and tap screen", duration: 3.0, position: .top)
     }
     
     override func didReceiveMemoryWarning() {
@@ -205,7 +226,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
         
-        _ = screenshotAction()
+        let image = screenshotAction()
+        
+//        ImageClassifyHelper.shared.uploadImage(image) {
+//            print($0)
+//        }
         
 //        let screenCenter = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
 //        let arHitTestResults: [ARHitTestResult] = sceneView.hitTest(screenCenter, types: [.featurePoint])
@@ -236,18 +261,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let transform: matrix_float4x4 = closestResult.worldTransform
             let worldCoordinate: SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
 
-            print(worldCoordinate)
-
             // Remove the tapped node
             var flag = false
             for node in scnNodes where node.position.distance(from: worldCoordinate) <= 0.15 {
-                
-                
                 let particleSystem = SCNParticleSystem(named: "art.scnassets/Explode.scnp", inDirectory: nil)
                 let systemNode = SCNNode()
                 systemNode.addParticleSystem(particleSystem!)
                 // place explosion where node is
-                systemNode.position = worldCoordinate
+                systemNode.position = SCNVector3(x: worldCoordinate.x, y: worldCoordinate.y, z: worldCoordinate.z)
                 sceneView.scene.rootNode.addChildNode(systemNode)
                 
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.init(uptimeNanoseconds: 1000), execute: {
@@ -255,32 +276,57 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     node.removeFromParentNode()
                 })
                 
+                if menuIsOpen {
+                    controlMenu()
+                }
+                
                 flag = true
             }
 
             // Add a node if no node needs to be removed
             if !flag {
+                
+                // 要添加物体才添加动画效果
                 _ = addNode(with: latestPrediction, at: worldCoordinate)
+                
+                tagListView.removeAllTags()
+                
                 /// TODO 增加气泡添加之后，的维基检索结果
                 let title = latestPrediction
                 
                 WikipediaHelper.shared.getSummary(of: title) { model in
+                    
                     guard let model = model else {
                         return
                     }
                     self.dataItems.wikiModel = model
+                    
+                    NLPUnderstandingHelper.shared.analyze(text: model.description) { results in
+                        DispatchQueue.main.async {
+                            self.tagListView.addTags(results)
+                        }
+                    }
+                    
                     if !self.menuIsOpen {
                         DispatchQueue.main.async {
                             self.controlMenu()
                         }
                     }
+                    
+                    UserDefaults.standard.set(UIImagePNGRepresentation(image), forKey: title)
+                    UserDefaults.standard.synchronize()
+                    
                     WikipediaHelper.shared.getURL(from: String(model.pageid), completion: { url in
+                        DispatchQueue.main.async {
+                            self.cameraAnimation.isHidden = true
+                            self.sceneView.isUserInteractionEnabled = true
+                        }
+                        
                         self.dataItems.firstItemClickAction = {
                             guard let url = url else { return }
                             let detailVC = DataItemDetailViewController()
                             detailVC.wikiURL = url
                             DispatchQueue.main.async {
-
                                 self.navigationController?.pushViewController(detailVC, animated: true)
                             }
                         }
@@ -293,7 +339,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
-    func addNode(with text: String, at position: SCNVector3) -> SCNNode {
+    func addNode(with text: String, at position: SCNVector3) -> SCNNode? {
         let node: SCNNode = BubbleTextNode(text: text, at: position)
         node.position = position
         
@@ -303,16 +349,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         scnNodes.insert(node)
         
         return node
-    }
-    
-    // Explosion
-    func createExplosion(color: UIColor, shape: SCNGeometry, position: SCNVector3, rotation: SCNVector4) {
-        let particleSystem = SCNParticleSystem(named: "art.scnassets/Explode.scnp", inDirectory: nil)
-        let systemNode = SCNNode()
-        systemNode.addParticleSystem(particleSystem!)
-        // place explosion where node is
-        systemNode.position = position
-        sceneView.scene.rootNode.addChildNode(systemNode)
     }
     
     // MARK: - CoreML Vision Handling
@@ -348,11 +384,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             .joined(separator: "\n")
         
         DispatchQueue.main.async {
-            // Display Debug Text on screen
-            var debugText:String = ""
-            debugText += classifications
-            self.debugTextView.text = debugText
-            
             // Store the latest prediction
             var objectName:String = "…"
             objectName = classifications.components(separatedBy: "-")[0]
@@ -413,6 +444,41 @@ extension ViewController {
         }
         
         return image!
+    }
+    
+}
+
+extension ViewController: TagListViewDelegate {
+    
+    func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
+        
+        self.sceneView.makeToastActivity(.center)
+        
+        WikipediaHelper.shared.getSummary(of: title) { (model) in
+            guard let model = model else {
+                DispatchQueue.main.async {
+                    self.sceneView.makeToast("No Wikipedia page available", duration: 3.0, position: .top)
+                    self.sceneView.hideToastActivity()
+                }
+                return
+            }
+            
+            WikipediaHelper.shared.getURL(from: String(model.pageid), completion: { url in
+                guard let url = url else {
+                    DispatchQueue.main.async {
+                        self.sceneView.makeToast("No Wikipedia page available", duration: 3.0, position: .top)
+                        self.sceneView.hideToastActivity()
+                    }
+                    return
+                }
+                
+                let safariVC = SFSafariViewController(url: URL(string: url)!)
+                DispatchQueue.main.async {
+                    self.sceneView.hideToastActivity()
+                    self.present(safariVC, animated: true, completion: nil)
+                }
+            })
+        }
     }
     
 }

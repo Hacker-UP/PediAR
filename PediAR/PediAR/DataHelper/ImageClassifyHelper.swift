@@ -9,6 +9,7 @@
 import UIKit
 import VisualRecognitionV3
 
+
 class ImageClassifyHelper: NSObject {
 
     static let shared: ImageClassifyHelper = ImageClassifyHelper()
@@ -18,6 +19,30 @@ class ImageClassifyHelper: NSObject {
     private override init() {
         let version = Date().getIBMVersionString()  // use today's date for the most recent version
         visualRecognition = VisualRecognition(apiKey: kIBMVisualRecognitionKey, version: version)
+    }
+    
+    func uploadImage(_ image: UIImage, completion: @escaping (_ url: String?) -> Void) {
+        print(UIImageJPEGRepresentation(image, 0.5)!)
+        let str = (UIImageJPEGRepresentation(image, 0.5)!).base64EncodedString().addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)
+//        let str = String(data: imageData, encoding: String.Encoding.utf8)
+        
+        URL(string: "139.198.190.108:8087/?file=\(str)")
+        if let url = URL(string: "http://139.198.190.108:8087/?file=\(str)") {
+//            print(url)
+            let session = URLSession(configuration: .default)
+            session.dataTask(with: url, completionHandler: {
+                data, response, err in
+                print(response)
+                guard err == nil else {
+                    return
+                }
+                guard let data = data else {
+                    completion(nil)
+                    return
+                }
+                completion(nil)
+            }).resume()
+        }
     }
     
     func classify(withUrl url: String, completion: @escaping ((_ resultTupleArray: [(name: String, score: Double)]) -> Void)) {

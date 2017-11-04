@@ -56,16 +56,6 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tdc-z5-Mcd">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="PediAR is ready for datas." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vys-wp-jsE">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.51875535100000003" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="RB3-b7-lUc"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmj-dv-b5w">
                                 <rect key="frame" x="176" y="322" width="22" height="22"/>
                             </button>
@@ -73,20 +63,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Tdc-z5-Mcd" firstAttribute="top" secondItem="YC1-I0-12S" secondAttribute="top" id="5HQ-tw-JGj"/>
-                            <constraint firstItem="vys-wp-jsE" firstAttribute="leading" secondItem="KMN-qt-Jiy" secondAttribute="leading" id="6aT-eV-xj7"/>
                             <constraint firstItem="Tdc-z5-Mcd" firstAttribute="trailing" secondItem="KMN-qt-Jiy" secondAttribute="trailing" id="8Vn-Lt-rFQ"/>
-                            <constraint firstItem="vys-wp-jsE" firstAttribute="top" secondItem="YC1-I0-12S" secondAttribute="top" id="9np-TF-DcL"/>
                             <constraint firstItem="cmj-dv-b5w" firstAttribute="centerY" secondItem="YC1-I0-12S" secondAttribute="centerY" id="OpC-w6-AJZ"/>
                             <constraint firstItem="cmj-dv-b5w" firstAttribute="centerX" secondItem="YC1-I0-12S" secondAttribute="centerX" id="QyW-Np-dbH"/>
                             <constraint firstItem="Tdc-z5-Mcd" firstAttribute="leading" secondItem="KMN-qt-Jiy" secondAttribute="leading" id="Z1q-GF-ZgP"/>
                             <constraint firstItem="Tdc-z5-Mcd" firstAttribute="bottom" secondItem="YC1-I0-12S" secondAttribute="bottom" id="c2z-ba-yIX"/>
-                            <constraint firstItem="vys-wp-jsE" firstAttribute="trailing" secondItem="KMN-qt-Jiy" secondAttribute="trailing" id="dpb-gk-lxR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KMN-qt-Jiy"/>
                     </view>
                     <navigationItem key="navigationItem" id="Xyk-9y-Ccz"/>
                     <connections>
-                        <outlet property="debugTextView" destination="vys-wp-jsE" id="qMc-ZN-xZ0"/>
                         <outlet property="sceneView" destination="Tdc-z5-Mcd" id="CTu-Wf-jEy"/>
                     </connections>
                 </viewController>

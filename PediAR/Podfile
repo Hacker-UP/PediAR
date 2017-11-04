@@ -7,4 +7,6 @@ target 'PediAR' do
 	pod 'Kingfisher', '~> 4.0'
 	pod 'Agrume', :git => 'https://github.com/JanGorman/Agrume.git'
 	pod 'SwiftyJSON'
+	pod 'TagListView', '~> 1.0'
+	pod 'Toast-Swift'
 end

@@ -89,14 +89,15 @@ extension DataItemView: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(DataItemCollectionViewCell.self)", for: indexPath) as! DataItemCollectionViewCell
         if indexPath.row == 0 {
-            let viewModel = DataItemCollectionViewCellModel()
-            viewModel.backgroundColor = .clear
-            cell.viewModel = viewModel
+            cell.viewModel = DataItemCollectionViewCellModel()
+            cell.bakView.backgroundColor = .white
             cell.clickAction = firstItemClickAction
+            cell.imageView.image = #imageLiteral(resourceName: "wikipedia")
             return cell
         }
         else {
             cell.viewModel = viewModels[indexPath.row - 1]
+            cell.imageView.image = #imageLiteral(resourceName: "jump-button")
             cell.clickAction = {
                 if let image = cell.imageView.image {
                     let agrume = Agrume(image: image, backgroundColor: .black)
