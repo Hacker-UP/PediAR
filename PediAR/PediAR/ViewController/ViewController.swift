@@ -147,10 +147,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // 退出停止动画
         cameraAnimation.stop()
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
         // Draw the square frame
         let rectPath = UIBezierPath(rect: squareRect)
@@ -164,9 +168,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         rectPath.stroke()
         sceneView.layer.addSublayer(layer)
         
-        WikipediaHelper.shared.getSummary(of: "Computer Keyboard") { (model) in
-            print(model.title)
-        }
+//        WikipediaHelper.shared.getSummary(of: "Computer Keyboard") { (model) in
+//            print(model?.title ?? "no title")
+//        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -201,7 +205,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
         
-        screenshotAction()
+        _ = screenshotAction()
         
 //        let screenCenter = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
 //        let arHitTestResults: [ARHitTestResult] = sceneView.hitTest(screenCenter, types: [.featurePoint])
@@ -244,7 +248,35 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
             // Add a node if no node needs to be removed
             if !flag {
-                addNode(with: latestPrediction, at: worldCoordinate)
+                _ = addNode(with: latestPrediction, at: worldCoordinate)
+                /// TODO 增加气泡添加之后，的维基检索结果
+                let title = latestPrediction
+                
+                WikipediaHelper.shared.getSummary(of: title) { model in
+                    guard let model = model else {
+                        return
+                    }
+                    self.dataItems.wikiModel = model
+                    if !self.menuIsOpen {
+                        DispatchQueue.main.async {
+                            self.controlMenu()
+                        }
+                    }
+                    WikipediaHelper.shared.getURL(from: String(model.pageid), completion: { url in
+                        self.dataItems.firstItemClickAction = {
+                            guard let url = url else { return }
+                            let detailVC = DataItemDetailViewController()
+                            detailVC.wikiURL = url
+                            DispatchQueue.main.async {
+
+                                self.navigationController?.pushViewController(detailVC, animated: true)
+                            }
+                        }
+                        DispatchQueue.main.async {
+                            self.dataItems.updateDatas()
+                        }
+                    })
+                }
             }
         }
     }

@@ -10,22 +10,21 @@ import Foundation
 
 struct WikiModel: Codable {
     
-    var title: String
-    var displaytitle: String
-    var pageid: Int
-    var extract: String
-    var extract_html: String
-    var thumbnail: WikiImage
-    var originalimage: WikiImage
-    var lang: String
-    var dir: String
-    var timestamp: String
-    var description: String
+    var title: String = ""
+    var displaytitle: String = ""
+    var pageid: Int = 0
+    var extract: String = ""
+    var extract_html: String = ""
+    var thumbnail: WikiImage = WikiImage()
+    var originalimage: WikiImage = WikiImage()
+    var lang: String = ""
+    var dir: String = ""
+    var timestamp: String = ""
+    var description: String = ""
     
     struct WikiImage: Codable {
-        var source: String
-        var width: Int
-        var height: Int
+        var source: String = ""
+        var width: Int = 0
+        var height: Int = 0
     }
-    
 }

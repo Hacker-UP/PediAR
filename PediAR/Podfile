@@ -6,4 +6,5 @@ target 'PediAR' do
 	pod 'lottie-ios'
 	pod 'Kingfisher', '~> 4.0'
 	pod 'Agrume', :git => 'https://github.com/JanGorman/Agrume.git'
+	pod 'SwiftyJSON'
 end

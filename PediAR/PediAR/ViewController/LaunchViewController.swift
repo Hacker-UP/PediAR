@@ -65,6 +65,7 @@ extension LaunchViewController {
     @objc fileprivate func toVR() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ViewController")
-        present(vc, animated: true) {}
+        let navgationController = UINavigationController(rootViewController: vc)
+        present(navgationController, animated: true) {}
     }
 }

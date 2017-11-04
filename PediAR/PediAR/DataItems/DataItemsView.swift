@@ -11,7 +11,15 @@ import Agrume
 
 class DataItemView: UIView {
     
-    public var viewModels: [DataItemCollectionViewCellModel] = []
+    public var viewModels: [DataItemCollectionViewCellModel] = [] {
+        didSet {
+//            updateDatas()
+        }
+    }
+    
+    public var wikiModel: WikiModel = WikiModel()
+    
+    public var firstItemClickAction: () -> () = {}
     
     fileprivate var collectionView: UICollectionView!
 
@@ -63,6 +71,10 @@ class DataItemView: UIView {
             make.top.left.right.bottom.equalTo(self)
         }
     }
+    
+    public func updateDatas() {
+        collectionView.reloadData()
+    }
 }
 
 // MARK: - UICollectionDelegate
@@ -80,9 +92,7 @@ extension DataItemView: UICollectionViewDataSource {
             let viewModel = DataItemCollectionViewCellModel()
             viewModel.backgroundColor = .clear
             cell.viewModel = viewModel
-            cell.clickAction = {
-                print("first")
-            }
+            cell.clickAction = firstItemClickAction
             return cell
         }
         else {

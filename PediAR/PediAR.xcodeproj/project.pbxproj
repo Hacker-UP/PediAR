@@ -34,6 +34,7 @@
 		75B3E9721FAD4F8E00E30DBE /* DataItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75B3E9701FAD4F8E00E30DBE /* DataItemCollectionViewCell.xib */; };
 		75B3E9761FAD767D00E30DBE /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B3E9751FAD767D00E30DBE /* ViewControllerHelper.swift */; };
 		75B3E9791FAD9FAF00E30DBE /* UIViewController+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B3E9781FAD9FAF00E30DBE /* UIViewController+helper.swift */; };
+		75B3E97B1FADB8CA00E30DBE /* DataItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B3E97A1FADB8CA00E30DBE /* DataItemDetailViewController.swift */; };
 		D259A91434870E7C30D6729A /* Pods_PediAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943759198A75198AB5F60F0E /* Pods_PediAR.framework */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +145,7 @@
 		75B3E9701FAD4F8E00E30DBE /* DataItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		75B3E9751FAD767D00E30DBE /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
 		75B3E9781FAD9FAF00E30DBE /* UIViewController+helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+helper.swift"; sourceTree = "<group>"; };
+		75B3E97A1FADB8CA00E30DBE /* DataItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItemDetailViewController.swift; sourceTree = "<group>"; };
 		943759198A75198AB5F60F0E /* Pods_PediAR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PediAR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E8DB98A2A2B6EFC2F072950 /* Pods-PediARTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PediARTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PediARTests/Pods-PediARTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A0714A2195CDF53BDE50E461 /* Pods_PediARTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PediARTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,6 +371,7 @@
 				75B3E9671FAD3B0000E30DBE /* DataItemsView.swift */,
 				75B3E96F1FAD4F8E00E30DBE /* DataItemCollectionViewCell.swift */,
 				75B3E9701FAD4F8E00E30DBE /* DataItemCollectionViewCell.xib */,
+				75B3E97A1FADB8CA00E30DBE /* DataItemDetailViewController.swift */,
 			);
 			path = DataItems;
 			sourceTree = "<group>";
@@ -483,14 +486,15 @@
 				"${BUILT_PRODUCTS_DIR}/Agrume/Agrume.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Agrume.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,6 +549,7 @@
 				24DDFCE11FACCCB5004DF2E8 /* Inceptionv3.mlmodel in Sources */,
 				24266E141FADA06400774E26 /* WikiModel.swift in Sources */,
 				24266E0F1FAD9E7400774E26 /* WikipediaHelper.swift in Sources */,
+				75B3E97B1FADB8CA00E30DBE /* DataItemDetailViewController.swift in Sources */,
 				24266D9F1FAD435400774E26 /* UIFontExtension.swift in Sources */,
 				24266D9B1FAD3DB300774E26 /* FloatExtension.swift in Sources */,
 				24266D971FACDC7D00774E26 /* BubbleTextNode.swift in Sources */,
