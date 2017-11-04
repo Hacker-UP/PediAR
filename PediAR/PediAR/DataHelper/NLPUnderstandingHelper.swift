@@ -15,7 +15,7 @@ class NLPUnderstandingHelper: NSObject {
     
     private var naturalLanguageUnderstanding: NaturalLanguageUnderstanding
     
-    private let maximumResultNumber = 5
+    private let maximumResultNumber = 10
     
     private override init() {
         let version = Date().getIBMVersionString()

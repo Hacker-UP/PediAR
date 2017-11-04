@@ -20,6 +20,8 @@
 		24266DB61FAD90D400774E26 /* NLPUnderstandingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266DB51FAD90D400774E26 /* NLPUnderstandingHelper.swift */; };
 		24266DB81FAD914B00774E26 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266DB71FAD914B00774E26 /* DateExtension.swift */; };
 		24266E0D1FAD944500774E26 /* NaturalLanguageUnderstandingV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24266E0B1FAD93FD00774E26 /* NaturalLanguageUnderstandingV1.framework */; };
+		24266E0F1FAD9E7400774E26 /* WikipediaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266E0E1FAD9E7400774E26 /* WikipediaHelper.swift */; };
+		24266E141FADA06400774E26 /* WikiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266E131FADA06400774E26 /* WikiModel.swift */; };
 		24DDFCCD1FACCC5B004DF2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */; };
 		24DDFCD41FACCC5B004DF2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCD21FACCC5B004DF2E8 /* Main.storyboard */; };
 		24DDFCD61FACCC5B004DF2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCD51FACCC5B004DF2E8 /* Assets.xcassets */; };
@@ -126,6 +128,8 @@
 		24266E081FAD923A00774E26 /* AlchemyDataNewsV1.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = AlchemyDataNewsV1.framework.dSYM; sourceTree = "<group>"; };
 		24266E091FAD923A00774E26 /* .swift-sdk.version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-sdk.version"; sourceTree = "<group>"; };
 		24266E0B1FAD93FD00774E26 /* NaturalLanguageUnderstandingV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NaturalLanguageUnderstandingV1.framework; path = Carthage/Build/iOS/NaturalLanguageUnderstandingV1.framework; sourceTree = "<group>"; };
+		24266E0E1FAD9E7400774E26 /* WikipediaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaHelper.swift; sourceTree = "<group>"; };
+		24266E131FADA06400774E26 /* WikiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiModel.swift; sourceTree = "<group>"; };
 		24DDFCC91FACCC5B004DF2E8 /* PediAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PediAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24DDFCD31FACCC5B004DF2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -141,7 +145,10 @@
 		75B3E9751FAD767D00E30DBE /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
 		75B3E9781FAD9FAF00E30DBE /* UIViewController+helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+helper.swift"; sourceTree = "<group>"; };
 		943759198A75198AB5F60F0E /* Pods_PediAR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PediAR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E8DB98A2A2B6EFC2F072950 /* Pods-PediARTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PediARTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PediARTests/Pods-PediARTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A0714A2195CDF53BDE50E461 /* Pods_PediARTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PediARTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DF234C2706D9E504B574C9 /* Pods-PediAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PediAR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PediAR/Pods-PediAR.debug.xcconfig"; sourceTree = "<group>"; };
+		B3608B1C77BEC79E36534691 /* Pods-PediARTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PediARTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PediARTests/Pods-PediARTests.release.xcconfig"; sourceTree = "<group>"; };
 		EE674ED64337DC24A639D355 /* Pods-PediAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PediAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-PediAR/Pods-PediAR.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -265,6 +272,28 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		24266E101FADA04600774E26 /* DataHelper */ = {
+			isa = PBXGroup;
+			children = (
+				24266E131FADA06400774E26 /* WikiModel.swift */,
+				24266DB01FAD658000774E26 /* ImageClassifyHelper.swift */,
+				24266DB51FAD90D400774E26 /* NLPUnderstandingHelper.swift */,
+				24266E0E1FAD9E7400774E26 /* WikipediaHelper.swift */,
+			);
+			path = DataHelper;
+			sourceTree = "<group>";
+		};
+		24266E251FADAB6500774E26 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				24266D981FAD3B7100774E26 /* ViewController.swift */,
+				75B3E9751FAD767D00E30DBE /* ViewControllerHelper.swift */,
+				24266D961FACDC7D00774E26 /* BubbleTextNode.swift */,
+				75B3E9651FACF11700E30DBE /* LaunchViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		24DDFCC01FACCC5B004DF2E8 = {
 			isa = PBXGroup;
 			children = (
@@ -289,19 +318,15 @@
 				75B3E9771FAD9F9800E30DBE /* Category */,
 				75B3E96E1FAD4F1800E30DBE /* DataItems */,
 				24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */,
-				24266D981FAD3B7100774E26 /* ViewController.swift */,
-				75B3E9751FAD767D00E30DBE /* ViewControllerHelper.swift */,
-				24266D961FACDC7D00774E26 /* BubbleTextNode.swift */,
-				75B3E9651FACF11700E30DBE /* LaunchViewController.swift */,
-				24266DB01FAD658000774E26 /* ImageClassifyHelper.swift */,
-				24266DB51FAD90D400774E26 /* NLPUnderstandingHelper.swift */,
+				24266DA61FAD507F00774E26 /* Constant.swift */,
+				24266E251FADAB6500774E26 /* ViewController */,
+				24266E101FADA04600774E26 /* DataHelper */,
+				24266DB41FAD800800774E26 /* Extensions */,
 				24DDFCD21FACCC5B004DF2E8 /* Main.storyboard */,
 				24DDFCD51FACCC5B004DF2E8 /* Assets.xcassets */,
 				24DDFCD71FACCC5B004DF2E8 /* LaunchScreen.storyboard */,
 				24DDFCDA1FACCC5B004DF2E8 /* Info.plist */,
 				24DDFCE01FACCCB5004DF2E8 /* Inceptionv3.mlmodel */,
-				24266DB41FAD800800774E26 /* Extensions */,
-				24266DA61FAD507F00774E26 /* Constant.swift */,
 				75B3E9691FAD409000E30DBE /* Lottie-json */,
 			);
 			path = PediAR;
@@ -314,6 +339,7 @@
 				24266E0B1FAD93FD00774E26 /* NaturalLanguageUnderstandingV1.framework */,
 				24266DA81FAD544400774E26 /* VisualRecognitionV3.framework */,
 				943759198A75198AB5F60F0E /* Pods_PediAR.framework */,
+				A0714A2195CDF53BDE50E461 /* Pods_PediARTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -323,6 +349,8 @@
 			children = (
 				A8DF234C2706D9E504B574C9 /* Pods-PediAR.debug.xcconfig */,
 				EE674ED64337DC24A639D355 /* Pods-PediAR.release.xcconfig */,
+				9E8DB98A2A2B6EFC2F072950 /* Pods-PediARTests.debug.xcconfig */,
+				B3608B1C77BEC79E36534691 /* Pods-PediARTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -460,6 +488,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Agrume.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
@@ -514,6 +543,8 @@
 				24266D991FAD3B7100774E26 /* ViewController.swift in Sources */,
 				24266DB11FAD658000774E26 /* ImageClassifyHelper.swift in Sources */,
 				24DDFCE11FACCCB5004DF2E8 /* Inceptionv3.mlmodel in Sources */,
+				24266E141FADA06400774E26 /* WikiModel.swift in Sources */,
+				24266E0F1FAD9E7400774E26 /* WikipediaHelper.swift in Sources */,
 				24266D9F1FAD435400774E26 /* UIFontExtension.swift in Sources */,
 				24266D9B1FAD3DB300774E26 /* FloatExtension.swift in Sources */,
 				24266D971FACDC7D00774E26 /* BubbleTextNode.swift in Sources */,

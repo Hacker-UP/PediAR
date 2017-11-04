@@ -136,7 +136,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             make.height.width.equalTo(35)
         }
         
-        NLPUnderstandingHelper.shared.analyze(text: "")
+//        NLPUnderstandingHelper.shared.analyze(text: "In computing, a computer keyboard is a typewriter-style device which uses an arrangement of buttons or keys to act as a mechanical lever or electronic switch. Following the decline of punch cards and paper tape, interaction via teleprinter-style keyboards became the main input device for computers.\nA keyboard typically has characters engraved or printed on the keys (buttons) and each press of a key typically corresponds to a single written symbol. However, to produce some symbols requires pressing and holding several keys simultaneously or in sequence. While most keyboard keys produce letters, numbers or signs (characters), other keys or simultaneous key presses can produce actions or execute computer commands.\nDespite the development of alternative input devices, such as the mouse, touchscreen, pen devices, character recognition and voice recognition, the keyboard remains the most commonly used device for direct (human) input of alphanumeric data into computers.\nIn normal usage, the keyboard is used as a text entry interface to type text and numbers into a word processor, text editor or other programs. In a modern computer, the interpretation of key presses is generally left to the software.")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -163,6 +163,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         layer.strokeColor = UIColor.init(red: 34.0/255.0, green: 196.0/255.0, blue: 228.0/255.0, alpha: 1.0).cgColor
         rectPath.stroke()
         sceneView.layer.addSublayer(layer)
+        
+        WikipediaHelper.shared.getSummary(of: "Computer Keyboard") { (model) in
+            print(model.title)
+        }
     }
     
     override func didReceiveMemoryWarning() {
