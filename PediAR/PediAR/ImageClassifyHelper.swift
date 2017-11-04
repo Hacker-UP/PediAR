@@ -9,21 +9,18 @@
 import UIKit
 import VisualRecognitionV3
 
-class ImageClassifier: NSObject {
+class ImageClassifyHelper: NSObject {
 
-    static let shared: ImageClassifier = ImageClassifier()
+    static let shared: ImageClassifyHelper = ImageClassifyHelper()
     
     private var visualRecognition: VisualRecognition
     
     private override init() {
-        let apiKey = kIBMKey
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let version = dateFormatter.string(from: Date()) // use today's date for the most recent version
-        visualRecognition = VisualRecognition(apiKey: apiKey, version: version)
+        let version = Date().getIBMVersionString()  // use today's date for the most recent version
+        visualRecognition = VisualRecognition(apiKey: kIBMVisualRecognitionKey, version: version)
     }
     
-    func classifyImage(with url: String, completion: @escaping ((_ resultTupleArray: [(name: String, score: Double)]) -> Void)) {
+    func classify(withUrl url: String, completion: @escaping ((_ resultTupleArray: [(name: String, score: Double)]) -> Void)) {
         let failure = { (error: Error) in print(error) }
         visualRecognition.classify(image: url, language: "en", failure: failure) { classifiedImages in
             completion((classifiedImages.images.first?.classifiers.first?.classes.map { ($0.classification, $0.score) })!)

@@ -15,8 +15,11 @@
 		24266DA11FAD452900774E26 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266DA01FAD452900774E26 /* UIColorExtension.swift */; };
 		24266DA71FAD507F00774E26 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266DA61FAD507F00774E26 /* Constant.swift */; };
 		24266DAD1FAD589D00774E26 /* VisualRecognitionV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24266DA81FAD544400774E26 /* VisualRecognitionV3.framework */; };
-		24266DB11FAD658000774E26 /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266DB01FAD658000774E26 /* ImageClassifier.swift */; };
+		24266DB11FAD658000774E26 /* ImageClassifyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266DB01FAD658000774E26 /* ImageClassifyHelper.swift */; };
 		24266DB31FAD772D00774E26 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266DB21FAD772D00774E26 /* UIImageExtension.swift */; };
+		24266DB61FAD90D400774E26 /* NLPUnderstandingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266DB51FAD90D400774E26 /* NLPUnderstandingHelper.swift */; };
+		24266DB81FAD914B00774E26 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266DB71FAD914B00774E26 /* DateExtension.swift */; };
+		24266E0D1FAD944500774E26 /* NaturalLanguageUnderstandingV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24266E0B1FAD93FD00774E26 /* NaturalLanguageUnderstandingV1.framework */; };
 		24DDFCCD1FACCC5B004DF2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */; };
 		24DDFCD41FACCC5B004DF2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCD21FACCC5B004DF2E8 /* Main.storyboard */; };
 		24DDFCD61FACCC5B004DF2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCD51FACCC5B004DF2E8 /* Assets.xcassets */; };
@@ -40,8 +43,88 @@
 		24266DA01FAD452900774E26 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		24266DA61FAD507F00774E26 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		24266DA81FAD544400774E26 /* VisualRecognitionV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VisualRecognitionV3.framework; path = Carthage/Build/iOS/VisualRecognitionV3.framework; sourceTree = "<group>"; };
-		24266DB01FAD658000774E26 /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
+		24266DB01FAD658000774E26 /* ImageClassifyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifyHelper.swift; sourceTree = "<group>"; };
 		24266DB21FAD772D00774E26 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		24266DB51FAD90D400774E26 /* NLPUnderstandingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLPUnderstandingHelper.swift; sourceTree = "<group>"; };
+		24266DB71FAD914B00774E26 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		24266DBD1FAD923A00774E26 /* 3F80FD60-F848-389E-9FF8-9CC83614537F.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "3F80FD60-F848-389E-9FF8-9CC83614537F.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DBE1FAD923A00774E26 /* 5208EF3C-0B90-3854-AF35-9EDAC03BF707.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "5208EF3C-0B90-3854-AF35-9EDAC03BF707.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DBF1FAD923A00774E26 /* AlchemyVisionV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlchemyVisionV1.framework; sourceTree = "<group>"; };
+		24266DC01FAD923A00774E26 /* 877ADCE4-13D5-3BCB-B8B2-1DD6F10273BF.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "877ADCE4-13D5-3BCB-B8B2-1DD6F10273BF.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DC11FAD923A00774E26 /* DialogV1.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = DialogV1.framework.dSYM; sourceTree = "<group>"; };
+		24266DC21FAD923A00774E26 /* AlchemyVisionV1.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = AlchemyVisionV1.framework.dSYM; sourceTree = "<group>"; };
+		24266DC31FAD923A00774E26 /* 7F40C0D8-D03A-362A-8C67-9013734EB6F7.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "7F40C0D8-D03A-362A-8C67-9013734EB6F7.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DC41FAD923A00774E26 /* DocumentConversionV1.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = DocumentConversionV1.framework.dSYM; sourceTree = "<group>"; };
+		24266DC51FAD923A00774E26 /* ToneAnalyzerV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ToneAnalyzerV3.framework; sourceTree = "<group>"; };
+		24266DC61FAD923A00774E26 /* DiscoveryV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DiscoveryV1.framework; sourceTree = "<group>"; };
+		24266DC71FAD923A00774E26 /* 94A395F8-B220-34EC-9BF5-8F7FC18F18EB.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "94A395F8-B220-34EC-9BF5-8F7FC18F18EB.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DC81FAD923A00774E26 /* DocumentConversionV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DocumentConversionV1.framework; sourceTree = "<group>"; };
+		24266DC91FAD923A00774E26 /* 820B5D49-27E4-3091-860A-A8AAB6C38D3E.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "820B5D49-27E4-3091-860A-A8AAB6C38D3E.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DCA1FAD923A00774E26 /* 015498CA-E48F-3EC4-B795-904814E354E8.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "015498CA-E48F-3EC4-B795-904814E354E8.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DCB1FAD923A00774E26 /* 0FF65259-A054-3420-9913-A7C53C60E277.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "0FF65259-A054-3420-9913-A7C53C60E277.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DCC1FAD923A00774E26 /* ConversationV1.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = ConversationV1.framework.dSYM; sourceTree = "<group>"; };
+		24266DCD1FAD923A00774E26 /* ConversationV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ConversationV1.framework; sourceTree = "<group>"; };
+		24266DCE1FAD923A00774E26 /* D3AA6750-26EC-3A02-AFF0-36E0C507191E.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "D3AA6750-26EC-3A02-AFF0-36E0C507191E.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DCF1FAD923A00774E26 /* AlchemyLanguageV1.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = AlchemyLanguageV1.framework.dSYM; sourceTree = "<group>"; };
+		24266DD01FAD923A00774E26 /* VisualRecognitionV3.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = VisualRecognitionV3.framework.dSYM; sourceTree = "<group>"; };
+		24266DD11FAD923A00774E26 /* PersonalityInsightsV2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PersonalityInsightsV2.framework; sourceTree = "<group>"; };
+		24266DD21FAD923A00774E26 /* RetrieveAndRankV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RetrieveAndRankV1.framework; sourceTree = "<group>"; };
+		24266DD31FAD923A00774E26 /* 3D230157-3F4E-3710-87E0-9FD8527EC3F5.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "3D230157-3F4E-3710-87E0-9FD8527EC3F5.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DD41FAD923A00774E26 /* SpeechToTextV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpeechToTextV1.framework; sourceTree = "<group>"; };
+		24266DD51FAD923A00774E26 /* RetrieveAndRankV1.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = RetrieveAndRankV1.framework.dSYM; sourceTree = "<group>"; };
+		24266DD61FAD923A00774E26 /* DiscoveryV1.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = DiscoveryV1.framework.dSYM; sourceTree = "<group>"; };
+		24266DD71FAD923A00774E26 /* NaturalLanguageUnderstandingV1.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = NaturalLanguageUnderstandingV1.framework.dSYM; sourceTree = "<group>"; };
+		24266DD81FAD923A00774E26 /* 9CF4B0BF-8370-39AD-82EB-9D26593FC88D.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "9CF4B0BF-8370-39AD-82EB-9D26593FC88D.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DD91FAD923A00774E26 /* E35BE61B-CF3E-3E17-84E0-371683DE5203.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "E35BE61B-CF3E-3E17-84E0-371683DE5203.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DDA1FAD923A00774E26 /* 2D88CCDD-601E-3479-83F1-B68B08CADB91.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "2D88CCDD-601E-3479-83F1-B68B08CADB91.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DDB1FAD923A00774E26 /* DF71EBB4-2304-3486-9750-E8ABD2A3D5FA.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "DF71EBB4-2304-3486-9750-E8ABD2A3D5FA.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DDC1FAD923A00774E26 /* 32DD00C3-90BA-3A5B-ACB8-A5CC8EE42BB6.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "32DD00C3-90BA-3A5B-ACB8-A5CC8EE42BB6.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DDD1FAD923A00774E26 /* 06874501-2F1E-3488-9D33-7DEE8E73A64F.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "06874501-2F1E-3488-9D33-7DEE8E73A64F.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DDE1FAD923A00774E26 /* E839D513-CC90-3473-8211-2047FBCB9CE7.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "E839D513-CC90-3473-8211-2047FBCB9CE7.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DDF1FAD923A00774E26 /* 588C4807-3B03-3792-AB4A-F429C2C0A7B8.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "588C4807-3B03-3792-AB4A-F429C2C0A7B8.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DE01FAD923A00774E26 /* TradeoffAnalyticsV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TradeoffAnalyticsV1.framework; sourceTree = "<group>"; };
+		24266DE11FAD923A00774E26 /* AA288DC7-8CBF-3C91-9615-E364B8F1D05A.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "AA288DC7-8CBF-3C91-9615-E364B8F1D05A.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DE21FAD923A00774E26 /* LanguageTranslatorV2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LanguageTranslatorV2.framework; sourceTree = "<group>"; };
+		24266DE31FAD923A00774E26 /* 43C73DDD-4FF2-364E-8CE0-7888E4134684.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "43C73DDD-4FF2-364E-8CE0-7888E4134684.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DE41FAD923A00774E26 /* AD45571F-8F51-3250-8C03-57F996A39DC8.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "AD45571F-8F51-3250-8C03-57F996A39DC8.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DE51FAD923A00774E26 /* PersonalityInsightsV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PersonalityInsightsV3.framework; sourceTree = "<group>"; };
+		24266DE61FAD923A00774E26 /* ToneAnalyzerV3.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = ToneAnalyzerV3.framework.dSYM; sourceTree = "<group>"; };
+		24266DE71FAD923A00774E26 /* SpeechToTextV1.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = SpeechToTextV1.framework.dSYM; sourceTree = "<group>"; };
+		24266DE81FAD923A00774E26 /* E1C921EB-13B3-389D-8518-8BF3E9F1E9D3.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "E1C921EB-13B3-389D-8518-8BF3E9F1E9D3.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DE91FAD923A00774E26 /* F738E102-492D-3417-A0B0-750C7281B137.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "F738E102-492D-3417-A0B0-750C7281B137.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DEA1FAD923A00774E26 /* D4A2BDAB-6438-3E4D-B4D3-6CE334219187.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "D4A2BDAB-6438-3E4D-B4D3-6CE334219187.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DEB1FAD923A00774E26 /* NaturalLanguageUnderstandingV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NaturalLanguageUnderstandingV1.framework; sourceTree = "<group>"; };
+		24266DEC1FAD923A00774E26 /* 47FBB3A8-0F5A-380D-8CC3-170C31BCFAF3.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "47FBB3A8-0F5A-380D-8CC3-170C31BCFAF3.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DED1FAD923A00774E26 /* 979EC486-E07F-3D46-BCE0-165F21C696D3.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "979EC486-E07F-3D46-BCE0-165F21C696D3.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DEE1FAD923A00774E26 /* DE9713CD-E6B5-39E2-A556-1A9DD5A518DB.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "DE9713CD-E6B5-39E2-A556-1A9DD5A518DB.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DEF1FAD923A00774E26 /* NaturalLanguageClassifierV1.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = NaturalLanguageClassifierV1.framework.dSYM; sourceTree = "<group>"; };
+		24266DF01FAD923A00774E26 /* 87205F9B-A838-3C03-ACE4-DAB083B5B0F0.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "87205F9B-A838-3C03-ACE4-DAB083B5B0F0.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DF11FAD923A00774E26 /* TextToSpeechV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TextToSpeechV1.framework; sourceTree = "<group>"; };
+		24266DF21FAD923A00774E26 /* VisualRecognitionV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VisualRecognitionV3.framework; sourceTree = "<group>"; };
+		24266DF31FAD923A00774E26 /* RelationshipExtractionV1Beta.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = RelationshipExtractionV1Beta.framework.dSYM; sourceTree = "<group>"; };
+		24266DF41FAD923A00774E26 /* NaturalLanguageClassifierV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NaturalLanguageClassifierV1.framework; sourceTree = "<group>"; };
+		24266DF51FAD923A00774E26 /* 524C1D58-E03A-3E82-A4D7-FB97EA84901D.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "524C1D58-E03A-3E82-A4D7-FB97EA84901D.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DF61FAD923A00774E26 /* TextToSpeechV1.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = TextToSpeechV1.framework.dSYM; sourceTree = "<group>"; };
+		24266DF71FAD923A00774E26 /* PersonalityInsightsV2.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = PersonalityInsightsV2.framework.dSYM; sourceTree = "<group>"; };
+		24266DF81FAD923A00774E26 /* 33F8D82B-ABCD-3CD6-93F8-94F4E3188E44.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "33F8D82B-ABCD-3CD6-93F8-94F4E3188E44.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DF91FAD923A00774E26 /* 6EE8400F-CCCB-3011-B9D7-2E8425EE4E90.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "6EE8400F-CCCB-3011-B9D7-2E8425EE4E90.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DFA1FAD923A00774E26 /* E77ABF13-507A-32CC-A740-5AB426F7FF43.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "E77ABF13-507A-32CC-A740-5AB426F7FF43.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DFB1FAD923A00774E26 /* RelationshipExtractionV1Beta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RelationshipExtractionV1Beta.framework; sourceTree = "<group>"; };
+		24266DFC1FAD923A00774E26 /* LanguageTranslatorV2.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = LanguageTranslatorV2.framework.dSYM; sourceTree = "<group>"; };
+		24266DFD1FAD923A00774E26 /* D7CAB50F-E9C6-30E0-9D38-1F4BBB132FB8.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "D7CAB50F-E9C6-30E0-9D38-1F4BBB132FB8.bcsymbolmap"; sourceTree = "<group>"; };
+		24266DFE1FAD923A00774E26 /* DialogV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DialogV1.framework; sourceTree = "<group>"; };
+		24266DFF1FAD923A00774E26 /* 518090FB-67F7-3626-BCF1-CFE0A60A7E54.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "518090FB-67F7-3626-BCF1-CFE0A60A7E54.bcsymbolmap"; sourceTree = "<group>"; };
+		24266E001FAD923A00774E26 /* TradeoffAnalyticsV1.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = TradeoffAnalyticsV1.framework.dSYM; sourceTree = "<group>"; };
+		24266E011FAD923A00774E26 /* AlchemyLanguageV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlchemyLanguageV1.framework; sourceTree = "<group>"; };
+		24266E021FAD923A00774E26 /* AlchemyDataNewsV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlchemyDataNewsV1.framework; sourceTree = "<group>"; };
+		24266E031FAD923A00774E26 /* 1D026AC9-53E3-38E3-8EAD-0B4D9F7BFFB0.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "1D026AC9-53E3-38E3-8EAD-0B4D9F7BFFB0.bcsymbolmap"; sourceTree = "<group>"; };
+		24266E041FAD923A00774E26 /* 2C626E43-A3D1-3738-AECB-46E574F8FD7A.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "2C626E43-A3D1-3738-AECB-46E574F8FD7A.bcsymbolmap"; sourceTree = "<group>"; };
+		24266E051FAD923A00774E26 /* 4A2C7BE6-405F-382C-A341-6909E7F28E9D.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "4A2C7BE6-405F-382C-A341-6909E7F28E9D.bcsymbolmap"; sourceTree = "<group>"; };
+		24266E061FAD923A00774E26 /* PersonalityInsightsV3.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = PersonalityInsightsV3.framework.dSYM; sourceTree = "<group>"; };
+		24266E071FAD923A00774E26 /* E495A0A3-1EC3-351A-A440-CA983ECF2126.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "E495A0A3-1EC3-351A-A440-CA983ECF2126.bcsymbolmap"; sourceTree = "<group>"; };
+		24266E081FAD923A00774E26 /* AlchemyDataNewsV1.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = AlchemyDataNewsV1.framework.dSYM; sourceTree = "<group>"; };
+		24266E091FAD923A00774E26 /* .swift-sdk.version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-sdk.version"; sourceTree = "<group>"; };
+		24266E0B1FAD93FD00774E26 /* NaturalLanguageUnderstandingV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NaturalLanguageUnderstandingV1.framework; path = Carthage/Build/iOS/NaturalLanguageUnderstandingV1.framework; sourceTree = "<group>"; };
 		24DDFCC91FACCC5B004DF2E8 /* PediAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PediAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24DDFCD31FACCC5B004DF2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24266E0D1FAD944500774E26 /* NaturalLanguageUnderstandingV1.framework in Frameworks */,
 				24266DAD1FAD589D00774E26 /* VisualRecognitionV3.framework in Frameworks */,
 				D259A91434870E7C30D6729A /* Pods_PediAR.framework in Frameworks */,
 			);
@@ -81,8 +165,102 @@
 				24266D9E1FAD435400774E26 /* UIFontExtension.swift */,
 				24266DA01FAD452900774E26 /* UIColorExtension.swift */,
 				24266DB21FAD772D00774E26 /* UIImageExtension.swift */,
+				24266DB71FAD914B00774E26 /* DateExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		24266DBB1FAD923A00774E26 /* Build */ = {
+			isa = PBXGroup;
+			children = (
+				24266DBC1FAD923A00774E26 /* iOS */,
+				24266E091FAD923A00774E26 /* .swift-sdk.version */,
+			);
+			name = Build;
+			path = Carthage/Build;
+			sourceTree = "<group>";
+		};
+		24266DBC1FAD923A00774E26 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				24266DBD1FAD923A00774E26 /* 3F80FD60-F848-389E-9FF8-9CC83614537F.bcsymbolmap */,
+				24266DBE1FAD923A00774E26 /* 5208EF3C-0B90-3854-AF35-9EDAC03BF707.bcsymbolmap */,
+				24266DBF1FAD923A00774E26 /* AlchemyVisionV1.framework */,
+				24266DC01FAD923A00774E26 /* 877ADCE4-13D5-3BCB-B8B2-1DD6F10273BF.bcsymbolmap */,
+				24266DC11FAD923A00774E26 /* DialogV1.framework.dSYM */,
+				24266DC21FAD923A00774E26 /* AlchemyVisionV1.framework.dSYM */,
+				24266DC31FAD923A00774E26 /* 7F40C0D8-D03A-362A-8C67-9013734EB6F7.bcsymbolmap */,
+				24266DC41FAD923A00774E26 /* DocumentConversionV1.framework.dSYM */,
+				24266DC51FAD923A00774E26 /* ToneAnalyzerV3.framework */,
+				24266DC61FAD923A00774E26 /* DiscoveryV1.framework */,
+				24266DC71FAD923A00774E26 /* 94A395F8-B220-34EC-9BF5-8F7FC18F18EB.bcsymbolmap */,
+				24266DC81FAD923A00774E26 /* DocumentConversionV1.framework */,
+				24266DC91FAD923A00774E26 /* 820B5D49-27E4-3091-860A-A8AAB6C38D3E.bcsymbolmap */,
+				24266DCA1FAD923A00774E26 /* 015498CA-E48F-3EC4-B795-904814E354E8.bcsymbolmap */,
+				24266DCB1FAD923A00774E26 /* 0FF65259-A054-3420-9913-A7C53C60E277.bcsymbolmap */,
+				24266DCC1FAD923A00774E26 /* ConversationV1.framework.dSYM */,
+				24266DCD1FAD923A00774E26 /* ConversationV1.framework */,
+				24266DCE1FAD923A00774E26 /* D3AA6750-26EC-3A02-AFF0-36E0C507191E.bcsymbolmap */,
+				24266DCF1FAD923A00774E26 /* AlchemyLanguageV1.framework.dSYM */,
+				24266DD01FAD923A00774E26 /* VisualRecognitionV3.framework.dSYM */,
+				24266DD11FAD923A00774E26 /* PersonalityInsightsV2.framework */,
+				24266DD21FAD923A00774E26 /* RetrieveAndRankV1.framework */,
+				24266DD31FAD923A00774E26 /* 3D230157-3F4E-3710-87E0-9FD8527EC3F5.bcsymbolmap */,
+				24266DD41FAD923A00774E26 /* SpeechToTextV1.framework */,
+				24266DD51FAD923A00774E26 /* RetrieveAndRankV1.framework.dSYM */,
+				24266DD61FAD923A00774E26 /* DiscoveryV1.framework.dSYM */,
+				24266DD71FAD923A00774E26 /* NaturalLanguageUnderstandingV1.framework.dSYM */,
+				24266DD81FAD923A00774E26 /* 9CF4B0BF-8370-39AD-82EB-9D26593FC88D.bcsymbolmap */,
+				24266DD91FAD923A00774E26 /* E35BE61B-CF3E-3E17-84E0-371683DE5203.bcsymbolmap */,
+				24266DDA1FAD923A00774E26 /* 2D88CCDD-601E-3479-83F1-B68B08CADB91.bcsymbolmap */,
+				24266DDB1FAD923A00774E26 /* DF71EBB4-2304-3486-9750-E8ABD2A3D5FA.bcsymbolmap */,
+				24266DDC1FAD923A00774E26 /* 32DD00C3-90BA-3A5B-ACB8-A5CC8EE42BB6.bcsymbolmap */,
+				24266DDD1FAD923A00774E26 /* 06874501-2F1E-3488-9D33-7DEE8E73A64F.bcsymbolmap */,
+				24266DDE1FAD923A00774E26 /* E839D513-CC90-3473-8211-2047FBCB9CE7.bcsymbolmap */,
+				24266DDF1FAD923A00774E26 /* 588C4807-3B03-3792-AB4A-F429C2C0A7B8.bcsymbolmap */,
+				24266DE01FAD923A00774E26 /* TradeoffAnalyticsV1.framework */,
+				24266DE11FAD923A00774E26 /* AA288DC7-8CBF-3C91-9615-E364B8F1D05A.bcsymbolmap */,
+				24266DE21FAD923A00774E26 /* LanguageTranslatorV2.framework */,
+				24266DE31FAD923A00774E26 /* 43C73DDD-4FF2-364E-8CE0-7888E4134684.bcsymbolmap */,
+				24266DE41FAD923A00774E26 /* AD45571F-8F51-3250-8C03-57F996A39DC8.bcsymbolmap */,
+				24266DE51FAD923A00774E26 /* PersonalityInsightsV3.framework */,
+				24266DE61FAD923A00774E26 /* ToneAnalyzerV3.framework.dSYM */,
+				24266DE71FAD923A00774E26 /* SpeechToTextV1.framework.dSYM */,
+				24266DE81FAD923A00774E26 /* E1C921EB-13B3-389D-8518-8BF3E9F1E9D3.bcsymbolmap */,
+				24266DE91FAD923A00774E26 /* F738E102-492D-3417-A0B0-750C7281B137.bcsymbolmap */,
+				24266DEA1FAD923A00774E26 /* D4A2BDAB-6438-3E4D-B4D3-6CE334219187.bcsymbolmap */,
+				24266DEB1FAD923A00774E26 /* NaturalLanguageUnderstandingV1.framework */,
+				24266DEC1FAD923A00774E26 /* 47FBB3A8-0F5A-380D-8CC3-170C31BCFAF3.bcsymbolmap */,
+				24266DED1FAD923A00774E26 /* 979EC486-E07F-3D46-BCE0-165F21C696D3.bcsymbolmap */,
+				24266DEE1FAD923A00774E26 /* DE9713CD-E6B5-39E2-A556-1A9DD5A518DB.bcsymbolmap */,
+				24266DEF1FAD923A00774E26 /* NaturalLanguageClassifierV1.framework.dSYM */,
+				24266DF01FAD923A00774E26 /* 87205F9B-A838-3C03-ACE4-DAB083B5B0F0.bcsymbolmap */,
+				24266DF11FAD923A00774E26 /* TextToSpeechV1.framework */,
+				24266DF21FAD923A00774E26 /* VisualRecognitionV3.framework */,
+				24266DF31FAD923A00774E26 /* RelationshipExtractionV1Beta.framework.dSYM */,
+				24266DF41FAD923A00774E26 /* NaturalLanguageClassifierV1.framework */,
+				24266DF51FAD923A00774E26 /* 524C1D58-E03A-3E82-A4D7-FB97EA84901D.bcsymbolmap */,
+				24266DF61FAD923A00774E26 /* TextToSpeechV1.framework.dSYM */,
+				24266DF71FAD923A00774E26 /* PersonalityInsightsV2.framework.dSYM */,
+				24266DF81FAD923A00774E26 /* 33F8D82B-ABCD-3CD6-93F8-94F4E3188E44.bcsymbolmap */,
+				24266DF91FAD923A00774E26 /* 6EE8400F-CCCB-3011-B9D7-2E8425EE4E90.bcsymbolmap */,
+				24266DFA1FAD923A00774E26 /* E77ABF13-507A-32CC-A740-5AB426F7FF43.bcsymbolmap */,
+				24266DFB1FAD923A00774E26 /* RelationshipExtractionV1Beta.framework */,
+				24266DFC1FAD923A00774E26 /* LanguageTranslatorV2.framework.dSYM */,
+				24266DFD1FAD923A00774E26 /* D7CAB50F-E9C6-30E0-9D38-1F4BBB132FB8.bcsymbolmap */,
+				24266DFE1FAD923A00774E26 /* DialogV1.framework */,
+				24266DFF1FAD923A00774E26 /* 518090FB-67F7-3626-BCF1-CFE0A60A7E54.bcsymbolmap */,
+				24266E001FAD923A00774E26 /* TradeoffAnalyticsV1.framework.dSYM */,
+				24266E011FAD923A00774E26 /* AlchemyLanguageV1.framework */,
+				24266E021FAD923A00774E26 /* AlchemyDataNewsV1.framework */,
+				24266E031FAD923A00774E26 /* 1D026AC9-53E3-38E3-8EAD-0B4D9F7BFFB0.bcsymbolmap */,
+				24266E041FAD923A00774E26 /* 2C626E43-A3D1-3738-AECB-46E574F8FD7A.bcsymbolmap */,
+				24266E051FAD923A00774E26 /* 4A2C7BE6-405F-382C-A341-6909E7F28E9D.bcsymbolmap */,
+				24266E061FAD923A00774E26 /* PersonalityInsightsV3.framework.dSYM */,
+				24266E071FAD923A00774E26 /* E495A0A3-1EC3-351A-A440-CA983ECF2126.bcsymbolmap */,
+				24266E081FAD923A00774E26 /* AlchemyDataNewsV1.framework.dSYM */,
+			);
+			path = iOS;
 			sourceTree = "<group>";
 		};
 		24DDFCC01FACCC5B004DF2E8 = {
@@ -112,7 +290,8 @@
 				75B3E9751FAD767D00E30DBE /* ViewControllerHelper.swift */,
 				24266D961FACDC7D00774E26 /* BubbleTextNode.swift */,
 				75B3E9651FACF11700E30DBE /* LaunchViewController.swift */,
-				24266DB01FAD658000774E26 /* ImageClassifier.swift */,
+				24266DB01FAD658000774E26 /* ImageClassifyHelper.swift */,
+				24266DB51FAD90D400774E26 /* NLPUnderstandingHelper.swift */,
 				24DDFCD21FACCC5B004DF2E8 /* Main.storyboard */,
 				24DDFCD51FACCC5B004DF2E8 /* Assets.xcassets */,
 				24DDFCD71FACCC5B004DF2E8 /* LaunchScreen.storyboard */,
@@ -128,6 +307,8 @@
 		37DF24D07E464C7753568A37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24266DBB1FAD923A00774E26 /* Build */,
+				24266E0B1FAD93FD00774E26 /* NaturalLanguageUnderstandingV1.framework */,
 				24266DA81FAD544400774E26 /* VisualRecognitionV3.framework */,
 				943759198A75198AB5F60F0E /* Pods_PediAR.framework */,
 			);
@@ -237,15 +418,17 @@
 /* Begin PBXShellScriptBuildPhase section */
 		24266DAE1FAD58B100774E26 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/VisualRecognitionV3.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/NaturalLanguageUnderstandingV1.framework",
 			);
 			name = "Run Script";
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/VisualRecognitionV3.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/NaturalLanguageUnderstandingV1.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -314,12 +497,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				75B3E9711FAD4F8E00E30DBE /* DataItemCollectionViewCell.swift in Sources */,
+				24266DB81FAD914B00774E26 /* DateExtension.swift in Sources */,
 				24266D991FAD3B7100774E26 /* ViewController.swift in Sources */,
-				24266DB11FAD658000774E26 /* ImageClassifier.swift in Sources */,
+				24266DB11FAD658000774E26 /* ImageClassifyHelper.swift in Sources */,
 				24DDFCE11FACCCB5004DF2E8 /* Inceptionv3.mlmodel in Sources */,
 				24266D9F1FAD435400774E26 /* UIFontExtension.swift in Sources */,
 				24266D9B1FAD3DB300774E26 /* FloatExtension.swift in Sources */,
 				24266D971FACDC7D00774E26 /* BubbleTextNode.swift in Sources */,
+				24266DB61FAD90D400774E26 /* NLPUnderstandingHelper.swift in Sources */,
 				24266DA11FAD452900774E26 /* UIColorExtension.swift in Sources */,
 				24266D9D1FAD427200774E26 /* SCNVector3Extension.swift in Sources */,
 				24266DA71FAD507F00774E26 /* Constant.swift in Sources */,

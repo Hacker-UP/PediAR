@@ -136,6 +136,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             make.height.width.equalTo(35)
         }
         
+        NLPUnderstandingHelper.shared.analyze(text: "")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -203,7 +204,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //            let transform: matrix_float4x4 = closestResult.worldTransform
 //            var currentPosition: SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
 //
-//            ImageClassifier.shared.classifyImage(with: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Pembroke_Welsh_Corgi_frontal.jpg/912px-Pembroke_Welsh_Corgi_frontal.jpg", completion: {
+//            ImageClassifier.shared.classify(withUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Pembroke_Welsh_Corgi_frontal.jpg/912px-Pembroke_Welsh_Corgi_frontal.jpg", completion: {
 //                print($0.map { ($0.name, $0.score) })
 //
 //                for tuple in $0 {
