@@ -16,7 +16,6 @@ class LaunchViewController: UIViewController {
     fileprivate let flickIconButton: UIButton = {
         var button = UIButton()
         button.setImage(UIImage(named: "flick-button"), for: .normal)
-//        button.addTarget(self, action: #selector(toVR), for: .touchUpInside)
         return button
     }()
     

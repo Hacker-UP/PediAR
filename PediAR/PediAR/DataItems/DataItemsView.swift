@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Agrume
 
 class DataItemView: UIView {
     
-    fileprivate var collectionView: UICollectionView!
+    public var viewModels: [DataItemCollectionViewCellModel] = []
     
+    fileprivate var collectionView: UICollectionView!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialDatas()
@@ -28,7 +31,12 @@ class DataItemView: UIView {
     }
     
     private func initialDatas() {
-        
+        /// sample
+        // TODO:
+        for index in 0 ..< 10 {
+            viewModels.append(DataItemCollectionViewCellModel())
+            viewModels[index].backgroundColor = .white
+        }
     }
     
     private func initialViews() {
@@ -63,12 +71,32 @@ extension DataItemView: UICollectionViewDelegate {}
 // MARK: - UICollectionDataSource
 extension DataItemView: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return viewModels.count + 1
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(DataItemCollectionViewCell.self)", for: indexPath)
-        return cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(DataItemCollectionViewCell.self)", for: indexPath) as! DataItemCollectionViewCell
+        if indexPath.row == 0 {
+            let viewModel = DataItemCollectionViewCellModel()
+            viewModel.backgroundColor = .clear
+            cell.viewModel = viewModel
+            cell.clickAction = {
+                print("first")
+            }
+            return cell
+        }
+        else {
+            cell.viewModel = viewModels[indexPath.row - 1]
+            cell.clickAction = {
+                if let image = cell.imageView.image {
+                    let agrume = Agrume(image: image, backgroundColor: .black)
+                    let root = rootViewController()
+                    agrume.hideStatusBar = true
+                    agrume.showFrom(root)
+                }
+            }
+            return cell
+        }
     }
 }
 

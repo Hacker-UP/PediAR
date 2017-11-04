@@ -14,7 +14,8 @@ extension ViewController {
         if menuIsOpen {
             UIView.animate(withDuration: 0.4) {
                 self.dataItems.transform = CGAffineTransform(translationX: 0, y: 120)
-                self.switchButton.transform = CGAffineTransform(translationX: 0, y: 100)
+                self.debugTextView.transform = CGAffineTransform(translationX: 0, y: -65)
+                self.switchButton.transform = CGAffineTransform(translationX: 0, y: 100).rotated(by: CGFloat(Double.pi))
             }
             menuIsOpen = false
         }
@@ -22,6 +23,7 @@ extension ViewController {
             UIView.animate(withDuration: 0.4) {
                 self.dataItems.transform = .identity
                 self.switchButton.transform = .identity
+                self.debugTextView.transform = .identity
             }
             menuIsOpen = true
         }

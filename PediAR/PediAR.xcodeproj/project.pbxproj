@@ -31,6 +31,7 @@
 		75B3E9711FAD4F8E00E30DBE /* DataItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B3E96F1FAD4F8E00E30DBE /* DataItemCollectionViewCell.swift */; };
 		75B3E9721FAD4F8E00E30DBE /* DataItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75B3E9701FAD4F8E00E30DBE /* DataItemCollectionViewCell.xib */; };
 		75B3E9761FAD767D00E30DBE /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B3E9751FAD767D00E30DBE /* ViewControllerHelper.swift */; };
+		75B3E9791FAD9FAF00E30DBE /* UIViewController+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B3E9781FAD9FAF00E30DBE /* UIViewController+helper.swift */; };
 		D259A91434870E7C30D6729A /* Pods_PediAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943759198A75198AB5F60F0E /* Pods_PediAR.framework */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +139,7 @@
 		75B3E96F1FAD4F8E00E30DBE /* DataItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		75B3E9701FAD4F8E00E30DBE /* DataItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		75B3E9751FAD767D00E30DBE /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
+		75B3E9781FAD9FAF00E30DBE /* UIViewController+helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+helper.swift"; sourceTree = "<group>"; };
 		943759198A75198AB5F60F0E /* Pods_PediAR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PediAR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DF234C2706D9E504B574C9 /* Pods-PediAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PediAR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PediAR/Pods-PediAR.debug.xcconfig"; sourceTree = "<group>"; };
 		EE674ED64337DC24A639D355 /* Pods-PediAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PediAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-PediAR/Pods-PediAR.release.xcconfig"; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 		24DDFCCB1FACCC5B004DF2E8 /* PediAR */ = {
 			isa = PBXGroup;
 			children = (
+				75B3E9771FAD9F9800E30DBE /* Category */,
 				75B3E96E1FAD4F1800E30DBE /* DataItems */,
 				24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */,
 				24266D981FAD3B7100774E26 /* ViewController.swift */,
@@ -340,6 +343,14 @@
 				75B3E9701FAD4F8E00E30DBE /* DataItemCollectionViewCell.xib */,
 			);
 			path = DataItems;
+			sourceTree = "<group>";
+		};
+		75B3E9771FAD9F9800E30DBE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				75B3E9781FAD9FAF00E30DBE /* UIViewController+helper.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,12 +452,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PediAR/Pods-PediAR-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Agrume/Agrume.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Agrume.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
@@ -512,6 +525,7 @@
 				75B3E9761FAD767D00E30DBE /* ViewControllerHelper.swift in Sources */,
 				75B3E9661FACF11700E30DBE /* LaunchViewController.swift in Sources */,
 				75B3E9681FAD3B0000E30DBE /* DataItemsView.swift in Sources */,
+				75B3E9791FAD9FAF00E30DBE /* UIViewController+helper.swift in Sources */,
 				24266DB31FAD772D00774E26 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -651,7 +665,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VEBQ28K9EA;
+				DEVELOPMENT_TEAM = DNL5G5M9A8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -671,7 +685,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VEBQ28K9EA;
+				DEVELOPMENT_TEAM = DNL5G5M9A8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

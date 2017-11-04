@@ -144,6 +144,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Pause the view's session
         sceneView.session.pause()
+        
+        // 退出停止动画
+        cameraAnimation.stop()
     }
     
     override func viewDidAppear(_ animated: Bool) {

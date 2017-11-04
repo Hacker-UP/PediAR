@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WfU-d6-mgq">
                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EpQ-6D-ZsT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detail" translatesAutoresizingMaskIntoConstraints="NO" id="EpQ-6D-ZsT">
                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                             </imageView>
                         </subviews>
@@ -49,4 +49,7 @@
             </connections>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="detail" width="43" height="42"/>
+    </resources>
 </document>

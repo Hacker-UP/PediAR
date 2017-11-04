@@ -1,18 +1,30 @@
 PODS:
+  - Agrume (4.0.0)
   - Kingfisher (4.2.0)
   - lottie-ios (2.1.4)
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
+  - Agrume (from `https://github.com/JanGorman/Agrume.git`)
   - Kingfisher (~> 4.0)
   - lottie-ios
   - SnapKit (~> 4.0.0)
 
+EXTERNAL SOURCES:
+  Agrume:
+    :git: https://github.com/JanGorman/Agrume.git
+
+CHECKOUT OPTIONS:
+  Agrume:
+    :commit: 3c9e0cb03a2b8682a0fb1c875fa693ed8ab26185
+    :git: https://github.com/JanGorman/Agrume.git
+
 SPEC CHECKSUMS:
+  Agrume: e47c5ba4dcf09285790b2e6c878b4ca1f346d412
   Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
   lottie-ios: 94fa2d82547ce3adf1e61157653ba99999fd279f
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: c0eea74b31bd442f44114ddeddd41463444f15d0
+PODFILE CHECKSUM: eaed12dec2a1ed614cbe2088b680f46695bdd5c7
 
 COCOAPODS: 1.3.1
