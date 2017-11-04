@@ -32,7 +32,7 @@ class BubbleTextNode: SCNNode {
         // BUBBLE NODE
         let (minBound, maxBound) = bubble.boundingBox
         let bubbleNode = SCNNode(geometry: bubble)
-        // Centre Node - to Centre-Bottom point
+        // Center Node - to Centre-Bottom point
         bubbleNode.pivot = SCNMatrix4MakeTranslation((maxBound.x - minBound.x) / 2, minBound.y, bubbleDepth / 2)
         // Reduce default text size
         bubbleNode.scale = SCNVector3Make(0.2, 0.2, 0.2)
@@ -48,44 +48,16 @@ class BubbleTextNode: SCNNode {
         let backgroundNode = SCNNode(geometry: backgroundBox)
         
         // BUBBLE PARENT NODE
-//        backgroundNode.position = position
         bubbleNode.position = SCNVector3(0, -0.01, bubbleDepth)
         backgroundNode.addChildNode(bubbleNode)
         
         self.addChildNode(backgroundNode)
+        
+        self.name = text
 
         self.constraints = [billboardConstraint]
     }
     
-    //        // TEXT BILLBOARD CONSTRAINT
-    //        let billboardConstraint = SCNBillboardConstraint()
-    //        billboardConstraint.freeAxes = SCNBillboardAxis.Y
-    //
-    //        // BUBBLE-TEXT
-    //        let bubble = SCNText(string: text, extrusionDepth: CGFloat(bubbleDepth))
-    //        var font = UIFont(name: "PingFangSC-Regular", size: 0.15)
-    //        font = font?.withTraits(traits: .traitBold)
-    //        bubble.font = font
-    //        bubble.alignmentMode = kCAAlignmentCenter
-    //        bubble.firstMaterial?.diffuse.contents = UIColor.orange
-    //        bubble.firstMaterial?.specular.contents = UIColor.white
-    //        bubble.firstMaterial?.isDoubleSided = false
-    //        bubble.flatness = 1.0 // setting this too low can cause crashes.
-    //        bubble.chamferRadius = CGFloat(bubbleDepth)
-    //
-    //        // BUBBLE NODE
-    //        let (minBound, maxBound) = bubble.boundingBox
-    //        let bubbleNode = SCNNode(geometry: bubble)
-    //        // Centre Node - to Centre-Bottom point
-    //        bubbleNode.pivot = SCNMatrix4MakeTranslation( (maxBound.x - minBound.x)/2, minBound.y, bubbleDepth/2)
-    //        // Reduce default text size
-    //        bubbleNode.scale = SCNVector3Make(0.2, 0.2, 0.2)
-    //
-    //        // BUBBLE PARENT NODE
-    //        let bubbleNodeParent = SCNNode()
-    //        bubbleNodeParent.addChildNode(bubbleNode)
-    //        bubbleNodeParent.constraints = [billboardConstraint]
-    //
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

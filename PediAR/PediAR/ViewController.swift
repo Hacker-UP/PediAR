@@ -18,6 +18,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     var latestPrediction : String = "…" // a variable containing the latest CoreML prediction
     
+    var scnNodes: Set = Set<SCNNode>()
+    
     // SCNAction
     var foreverBounceAction: SCNAction!
     
@@ -44,11 +46,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Enable Default Lighting - makes the 3D text a bit poppier.
         sceneView.autoenablesDefaultLighting = true
         
-        //////////////////////////////////////////////////
         // Tap Gesture Recognizer
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(gestureRecognize:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(gestureRecognize:)))
         view.addGestureRecognizer(tapGesture)
-        //////////////////////////////////////////////////
         
         // Set up Vision Model
         guard let selectedModel = try? VNCoreMLModel(for: Inceptionv3().model) else { // (Optional) This can be replaced with other models on https://developer.apple.com/machine-learning/
@@ -93,7 +93,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // MARK: - SCNActions
     
     func setUpActions() {
-        
         let bounceUpAction = SCNAction.moveBy(x: 0, y: 0.04, z: 0, duration: 1.0)
         let bounceDownAction = SCNAction.moveBy(x: 0, y: -0.04, z: 0, duration: 1.0)
         bounceUpAction.timingMode = .easeInEaseOut
@@ -127,25 +126,37 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let transform: matrix_float4x4 = closestResult.worldTransform
             let worldCoord: SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
             
-            // Create 3D Text
-            let node: SCNNode = BubbleTextNode(text: latestPrediction)
-            node.position = worldCoord
+            // Remove the tapped node
+            var flag = false
+            for node in scnNodes where node.position.distance(from: worldCoord) <= 0.1 {
+                node.removeFromParentNode()
+                scnNodes.remove(node)
+                flag = true
+            }
             
-            sceneView.scene.rootNode.addChildNode(node)
-            node.runAction(foreverBounceAction)
+            // Add a node if no node needs to be removed
+            if !flag {
+                let node: SCNNode = BubbleTextNode(text: latestPrediction)
+                node.position = worldCoord
+                
+                sceneView.scene.rootNode.addChildNode(node)
+                node.runAction(foreverBounceAction)
+                
+                scnNodes.insert(node)
+            }
         }
     }
     
     // MARK: - CoreML Vision Handling
     
     func loopCoreMLUpdate() {
-        // Continuously run CoreML whenever it's ready. (Preventing 'hiccups' in Frame Rate)
         
+        // Continuously run CoreML whenever it's ready. (Preventing 'hiccups' in Frame Rate)
         dispatchQueueML.async {
-            // 1. Run Update.
+            // Run Update.
             self.updateCoreML()
-            
-            // 2. Loop this function.
+        
+            // Loop this function.
             self.loopCoreMLUpdate()
         }
         
@@ -168,7 +179,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             .map({ "\($0.identifier) \(String(format:"- %.2f", $0.confidence))" })
             .joined(separator: "\n")
         
-        
         DispatchQueue.main.async {
             // Display Debug Text on screen
             var debugText:String = ""
@@ -185,7 +195,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func updateCoreML() {
-        ///////////////////////////
         // Get Camera Image as RGB
         let pixbuff : CVPixelBuffer? = (sceneView.session.currentFrame?.capturedImage)
         if pixbuff == nil { return }
@@ -193,27 +202,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Note: Not entirely sure if the ciImage is being interpreted as RGB, but for now it works with the Inception model.
         // Note2: Also uncertain if the pixelBuffer should be rotated before handing off to Vision (VNImageRequestHandler) - regardless, for now, it still works well with the Inception model.
         
-        ///////////////////////////
         // Prepare CoreML/Vision Request
         let imageRequestHandler = VNImageRequestHandler(ciImage: ciImage, options: [:])
         // let imageRequestHandler = VNImageRequestHandler(cgImage: cgImage!, orientation: myOrientation, options: [:]) // Alternatively; we can convert the above to an RGB CGImage and use that. Also UIInterfaceOrientation can inform orientation values.
         
-        ///////////////////////////
         // Run Image Request
         do {
             try imageRequestHandler.perform(self.visionRequests)
         } catch {
             print(error)
         }
-    }
-    
-}
-
-extension UIFont {
-    // Based on: https://stackoverflow.com/questions/4713236/how-do-i-set-bold-and-italic-on-uilabel-of-iphone-ipad
-    func withTraits(traits:UIFontDescriptorSymbolicTraits...) -> UIFont {
-        let descriptor = self.fontDescriptor.withSymbolicTraits(UIFontDescriptorSymbolicTraits(traits))
-        return UIFont(descriptor: descriptor!, size: 0)
     }
     
 }
