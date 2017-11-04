@@ -241,8 +241,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             // Remove the tapped node
             var flag = false
             for node in scnNodes where node.position.distance(from: worldCoordinate) <= 0.15 {
-                node.removeFromParentNode()
-                scnNodes.remove(node)
+                
+                
+                let particleSystem = SCNParticleSystem(named: "art.scnassets/Explode.scnp", inDirectory: nil)
+                let systemNode = SCNNode()
+                systemNode.addParticleSystem(particleSystem!)
+                // place explosion where node is
+                systemNode.position = worldCoordinate
+                sceneView.scene.rootNode.addChildNode(systemNode)
+                
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.init(uptimeNanoseconds: 1000), execute: {
+                    self.scnNodes.remove(node)
+                    node.removeFromParentNode()
+                })
+                
                 flag = true
             }
 
@@ -291,6 +303,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         scnNodes.insert(node)
         
         return node
+    }
+    
+    // Explosion
+    func createExplosion(color: UIColor, shape: SCNGeometry, position: SCNVector3, rotation: SCNVector4) {
+        let particleSystem = SCNParticleSystem(named: "art.scnassets/Explode.scnp", inDirectory: nil)
+        let systemNode = SCNNode()
+        systemNode.addParticleSystem(particleSystem!)
+        // place explosion where node is
+        systemNode.position = position
+        sceneView.scene.rootNode.addChildNode(systemNode)
     }
     
     // MARK: - CoreML Vision Handling
@@ -367,6 +389,10 @@ extension ViewController {
     func screenshotAction() -> UIImage {
         cameraAnimation.isHidden = true
         
+        for node in scnNodes {
+            node.isHidden = true
+        }
+        
         let scale = UIScreen.main.scale
         UIGraphicsBeginImageContextWithOptions(kScreenBounds.size, false, scale)
         self.sceneView.drawHierarchy(in: kScreenBounds, afterScreenUpdates: true)
@@ -375,12 +401,16 @@ extension ViewController {
         image = image?.getSubImage(rect: squareRect, scale: scale)
         UIGraphicsEndImageContext()
         
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 60, width: 200, height: 200))
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 70, width: 150, height: 150))
         imageView.image = image
         imageView.contentMode = .scaleAspectFill
         sceneView.addSubview(imageView)
         
         cameraAnimation.isHidden = false
+        
+        for node in scnNodes {
+            node.isHidden = false
+        }
         
         return image!
     }

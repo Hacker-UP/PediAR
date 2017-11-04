@@ -22,6 +22,7 @@
 		24266E0D1FAD944500774E26 /* NaturalLanguageUnderstandingV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24266E0B1FAD93FD00774E26 /* NaturalLanguageUnderstandingV1.framework */; };
 		24266E0F1FAD9E7400774E26 /* WikipediaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266E0E1FAD9E7400774E26 /* WikipediaHelper.swift */; };
 		24266E141FADA06400774E26 /* WikiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266E131FADA06400774E26 /* WikiModel.swift */; };
+		24266E271FADADCA00774E26 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 24266E261FADADCA00774E26 /* art.scnassets */; };
 		24DDFCCD1FACCC5B004DF2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */; };
 		24DDFCD41FACCC5B004DF2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCD21FACCC5B004DF2E8 /* Main.storyboard */; };
 		24DDFCD61FACCC5B004DF2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCD51FACCC5B004DF2E8 /* Assets.xcassets */; };
@@ -131,6 +132,7 @@
 		24266E0B1FAD93FD00774E26 /* NaturalLanguageUnderstandingV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NaturalLanguageUnderstandingV1.framework; path = Carthage/Build/iOS/NaturalLanguageUnderstandingV1.framework; sourceTree = "<group>"; };
 		24266E0E1FAD9E7400774E26 /* WikipediaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaHelper.swift; sourceTree = "<group>"; };
 		24266E131FADA06400774E26 /* WikiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiModel.swift; sourceTree = "<group>"; };
+		24266E261FADADCA00774E26 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		24DDFCC91FACCC5B004DF2E8 /* PediAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PediAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24DDFCD31FACCC5B004DF2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 		24DDFCCB1FACCC5B004DF2E8 /* PediAR */ = {
 			isa = PBXGroup;
 			children = (
+				24266E261FADADCA00774E26 /* art.scnassets */,
 				75B3E9771FAD9F9800E30DBE /* Category */,
 				75B3E96E1FAD4F1800E30DBE /* DataItems */,
 				24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */,
@@ -448,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75B3E96B1FAD40B800E30DBE /* camera.json in Resources */,
+				24266E271FADADCA00774E26 /* art.scnassets in Resources */,
 				75B3E9721FAD4F8E00E30DBE /* DataItemCollectionViewCell.xib in Resources */,
 				24DDFCD91FACCC5B004DF2E8 /* LaunchScreen.storyboard in Resources */,
 				24DDFCD61FACCC5B004DF2E8 /* Assets.xcassets in Resources */,
@@ -701,7 +705,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DNL5G5M9A8;
+				DEVELOPMENT_TEAM = VEBQ28K9EA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -721,7 +725,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DNL5G5M9A8;
+				DEVELOPMENT_TEAM = VEBQ28K9EA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

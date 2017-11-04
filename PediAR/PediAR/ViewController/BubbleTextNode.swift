@@ -27,7 +27,6 @@ class BubbleTextNode: SCNNode {
         omniBackLightNode.light = omniBackLight
         omniBackLightNode.position = SCNVector3.init(position.x - 2, 0, position.z - 2)
         
-        
         let omniFrontLight = SCNLight()
         omniFrontLight.type = .omni
         omniFrontLight.color = UIColor.white
