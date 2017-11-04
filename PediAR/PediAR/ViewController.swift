@@ -11,10 +11,26 @@ import SceneKit
 import ARKit
 import VisualRecognitionV3
 import Vision
+import Lottie
+import SnapKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
-    // Scene
+    // 图库展示
+    public var dataItems = DataItemView()
+    
+    // Menu Status
+    public var menuIsOpen: Bool = true
+    
+    // Switch Button
+    public var switchButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage.init(named: "close"), for: .normal)
+        button.addTarget(self, action: #selector(controlMenu), for: .touchUpInside)
+        return button
+    }()
+    
+    // SCENE
     @IBOutlet var sceneView: ARSCNView!
     var latestPrediction : String = "…" // a variable containing the latest CoreML prediction
     
@@ -59,6 +75,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         visionRequests = [classificationRequest]
         
+        // 防止键盘弹出
+        debugTextView.isUserInteractionEnabled = false
+        
         // Begin Loop to Update CoreML
         loopCoreMLUpdate()
         
@@ -89,6 +108,37 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Run the view's session
         sceneView.session.run(configuration)
+        
+        // 增加镜头动画
+        let cameraAnimation = LOTAnimationView(name: "camera")
+        cameraAnimation.alpha = 0.1
+        cameraAnimation.loopAnimation = true
+        view.addSubview(cameraAnimation)
+        
+        cameraAnimation.snp.makeConstraints { make in
+            make.center.equalTo(view)
+            make.height.width.equalTo(400)
+        }
+        
+        cameraAnimation.play()
+        
+        // 增加图片库
+        view.addSubview(dataItems)
+        
+        dataItems.snp.makeConstraints { make in
+            make.left.right.equalTo(view)
+            make.bottom.equalTo(view.snp.bottom).offset(-20)
+            make.height.equalTo(100)
+        }
+        
+        // 开关按钮
+        view.addSubview(switchButton)
+        switchButton.snp.makeConstraints { make in
+            make.centerX.equalTo(dataItems.snp.centerX)
+            make.bottom.equalTo(dataItems.snp.top).offset(-10)
+            make.height.width.equalTo(35)
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

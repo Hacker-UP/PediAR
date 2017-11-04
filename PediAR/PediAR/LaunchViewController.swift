@@ -33,8 +33,7 @@ class LaunchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        UIView.animate(withDuration: 5) { self.flickIconButton.alpha = 0 }
+        UIView.animate(withDuration: 0.3) { self.flickIconButton.alpha = 0 }
     }
     
     private func initialViews() {
@@ -58,8 +57,6 @@ extension LaunchViewController {
     @objc fileprivate func toVR() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ViewController")
-        present(vc, animated: true) {
-            
-        }
+        present(vc, animated: true) {}
     }
 }
