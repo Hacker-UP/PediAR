@@ -291,8 +291,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 
                 tagListView.removeAllTags()
                 
-                /// TODO 增加气泡添加之后，的维基检索结果
+                // 增加气泡添加之后，的维基检索结果
                 let title = latestPrediction
+                
+                // 修改 data
+                dataItems.getData(by: title)
                 
                 WikipediaHelper.shared.getSummary(of: title) { model in
                     

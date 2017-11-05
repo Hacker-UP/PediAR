@@ -13,7 +13,7 @@ class DataItemView: UIView {
     
     public var viewModels: [DataItemCollectionViewCellModel] = [] {
         didSet {
-//            updateDatas()
+            updateDatas()
         }
     }
     
@@ -25,8 +25,8 @@ class DataItemView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initialDatas()
         initialViews()
+        initialDatas()
         initialLayouts()
     }
     
@@ -41,10 +41,12 @@ class DataItemView: UIView {
     private func initialDatas() {
         /// sample
         // TODO:
+        var datas: [DataItemCollectionViewCellModel] = []
         for index in 0 ..< 10 {
-            viewModels.append(DataItemCollectionViewCellModel())
-            viewModels[index].backgroundColor = .white
+            datas.append(DataItemCollectionViewCellModel())
+            datas[index].backgroundColor = .white
         }
+        viewModels = datas
     }
     
     private func initialViews() {
@@ -96,8 +98,8 @@ extension DataItemView: UICollectionViewDataSource {
             return cell
         }
         else {
-            cell.viewModel = viewModels[indexPath.row - 1]
             cell.imageView.image = #imageLiteral(resourceName: "jump-button")
+            cell.viewModel = viewModels[indexPath.row - 1]
             cell.clickAction = {
                 if let image = cell.imageView.image {
                     let agrume = Agrume(image: image, backgroundColor: .black)
