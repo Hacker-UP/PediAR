@@ -85,19 +85,19 @@ extension DataItemView: UICollectionViewDelegate {}
 // MARK: - UICollectionDataSource
 extension DataItemView: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModels.count + 1
+        return viewModels.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(DataItemCollectionViewCell.self)", for: indexPath) as! DataItemCollectionViewCell
+        
         if indexPath.row == 0 {
             cell.viewModel = DataItemCollectionViewCellModel()
             cell.bakView.backgroundColor = .white
             cell.clickAction = firstItemClickAction
             cell.imageView.image = #imageLiteral(resourceName: "wikipedia")
             return cell
-        }
-        else {
+        } else {
             cell.imageView.image = #imageLiteral(resourceName: "jump-button")
             cell.viewModel = viewModels[indexPath.row - 1]
             cell.clickAction = {
@@ -111,6 +111,7 @@ extension DataItemView: UICollectionViewDataSource {
             return cell
         }
     }
+
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

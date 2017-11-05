@@ -17,3 +17,5 @@ let kIBMNLPUnderstandingPassword    = "Oy7eUxZe4Jl0"
 let kScreenWidth = CGFloat.minimum(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
 let kScreenHeight = CGFloat.maximum(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
 let kScreenBounds = UIScreen.main.bounds
+
+let kNoWikiString = "No Wikipedia page available"

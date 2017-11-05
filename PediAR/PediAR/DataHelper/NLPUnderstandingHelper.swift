@@ -24,15 +24,19 @@ class NLPUnderstandingHelper: NSObject {
                                                                         version: version)
     }
     
-    func analyze(text: String, completion: @escaping (_ keywords: [String]) -> Void) {
+    func analyze(text: String, completion: @escaping (_ keywords: [String]?) -> Void) {
         let features = Features(concepts: ConceptsOptions.init(limit: maximumResultNumber),
                                 keywords: KeywordsOptions.init(limit: maximumResultNumber))
         let parameters = Parameters(features: features, text: text)
         
-        let failure = { (error: Error) in print(error) }
+        let failure = {
+            (error: Error) in
+            print(error)
+            completion(nil)
+        }
         naturalLanguageUnderstanding.analyze(parameters: parameters, failure: failure, success: {
             results in
-            completion(results.concepts?.map { $0.text ?? "" } ?? [])
+            completion(results.concepts?.map { $0.text ?? "" })
         })
     }
     

@@ -51,6 +51,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var visionRequests = [VNRequest]()
     let dispatchQueueML = DispatchQueue(label: "com.hw.dispatchqueueml") // A Serial Queue
     
+    let configuration: ARWorldTrackingConfiguration = {
+        let configuration = ARWorldTrackingConfiguration()
+        
+        // Enable plane detection
+        configuration.planeDetection = .horizontal
+        
+        // Enable light estimation
+        configuration.isLightEstimationEnabled = true
+        
+        return configuration
+    }()
+    
     private let squareRect: CGRect = {
         return CGRect(x: 0, y: 0.5 * (kScreenHeight - kScreenWidth), width: kScreenWidth, height: kScreenWidth)
     }()
@@ -96,15 +108,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
-        
-        // Enable plane detection
-        configuration.planeDetection = .horizontal
-        
-        // Enable light estimation
-        configuration.isLightEstimationEnabled = true
         
         // Run the view's session
         sceneView.session.run(configuration)
@@ -172,6 +175,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         cameraAnimation.stop()
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        sceneView.session.pause()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -225,7 +230,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // MARK: - Interaction
     
     @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
-        let image = screenshotAction()
+        screenshotAction()
         
         let screenCenter: CGPoint = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
 
@@ -279,15 +284,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 })
                 
                 WikipediaHelper.shared.getSummary(of: title) { model in
-                    
                     guard let model = model else {
+                        self.failWiki()
+                        
                         return
                     }
                     self.dataItems.wikiModel = model
                     
                     NLPUnderstandingHelper.shared.analyze(text: model.description) { results in
-                        DispatchQueue.main.async {
-                            self.tagListView.addTags(results)
+                        if results != nil {
+                            DispatchQueue.main.async {
+                                self.tagListView.addTags(results!)
+                            }
                         }
                     }
                     
@@ -297,12 +305,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         }
                     }
                     
-                    UserDefaults.standard.set(UIImagePNGRepresentation(image), forKey: title)
-                    UserDefaults.standard.synchronize()
-                    
                     WikipediaHelper.shared.getURL(from: String(model.pageid), completion: { url in
                         self.dataItems.firstItemClickAction = {
-                            guard let url = url else { return }
+                            guard let url = url else {
+                                return
+                            }
                             let detailVC = DataItemDetailViewController()
                             detailVC.wikiURL = url
                             DispatchQueue.main.async {
@@ -396,7 +403,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
 extension ViewController {
     
-    func screenshotAction() -> UIImage {
+    func screenshotAction() {
         cameraAnimation.isHidden = true
         
         for node in scnNodes {
@@ -422,8 +429,6 @@ extension ViewController {
         for node in scnNodes {
             node.isHidden = false
         }
-        
-        return image!
     }
     
 }
@@ -437,7 +442,7 @@ extension ViewController: TagListViewDelegate {
         WikipediaHelper.shared.getSummary(of: title) { (model) in
             guard let model = model else {
                 DispatchQueue.main.async {
-                    self.sceneView.makeToast("No Wikipedia page available", duration: 3.0, position: .top)
+                    self.failWiki()
                     self.sceneView.hideToastActivity()
                 }
                 return
@@ -446,7 +451,7 @@ extension ViewController: TagListViewDelegate {
             WikipediaHelper.shared.getURL(from: String(model.pageid), completion: { url in
                 guard let url = url else {
                     DispatchQueue.main.async {
-                        self.sceneView.makeToast("No Wikipedia page available", duration: 3.0, position: .top)
+                        self.failWiki()
                         self.sceneView.hideToastActivity()
                     }
                     return
@@ -458,6 +463,13 @@ extension ViewController: TagListViewDelegate {
                     self.present(safariVC, animated: true, completion: nil)
                 }
             })
+        }
+    }
+    
+    func failWiki() {
+        DispatchQueue.main.async {
+//            self.dataItems.wikiModel = nil
+            self.sceneView.makeToast(kNoWikiString, duration: 3.0, position: .top)
         }
     }
     

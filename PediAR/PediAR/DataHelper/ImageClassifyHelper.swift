@@ -11,6 +11,8 @@ import VisualRecognitionV3
 import SwiftyJSON
 
 class ImageClassifyHelper: NSObject {
+    
+    private var isFetchingData: Bool = false
 
     static let shared: ImageClassifyHelper = ImageClassifyHelper()
     
@@ -36,20 +38,31 @@ class ImageClassifyHelper: NSObject {
     
     func getImage(with name: String, completion: @escaping ([String]) -> ()) {
         let urlstr = "http://139.198.190.108:8086/?word=\(name)"
-        if let url = URL(string: urlstr.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) {
-            let session = URLSession(configuration: .default)
-            session.dataTask(with: url) { (data, _, err) in
-                guard let data = data else {
-                    return
-                }
-                guard let res = String.init(data: data, encoding: String.Encoding.utf8) else {
-                    return
-                }
-                let datas = res.split(separator: "\n").map(String.init)
-                if datas.count > 0 {
-                    completion(datas)
-                }
-            }.resume()
+        
+        if !isFetchingData {
+        
+            if let url = URL(string: urlstr.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) {
+                let session = URLSession(configuration: .default)
+                
+                isFetchingData = true
+                
+                session.dataTask(with: url) { (data, _, err) in
+                    
+                    self.isFetchingData = false
+                    
+                    guard let data = data else {
+                        return
+                    }
+                    guard let res = String.init(data: data, encoding: String.Encoding.utf8) else {
+                        return
+                    }
+                    let datas = res.split(separator: "\n").map(String.init)
+                    if datas.count > 0 {
+                        completion(datas)
+                    }
+                }.resume()
+            }
+            
         }
     }
     
