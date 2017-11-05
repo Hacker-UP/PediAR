@@ -90,6 +90,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         loopCoreMLUpdate()
         
         setUpActions()
+        
+        sceneView.makeToast("Move your iPhone and aim at an object\nPlace object in the blue frame and tap screen", duration: 3.0, position: .top)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -144,7 +146,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         tagListView.alignment = .left
         tagListView.cornerRadius = 5.0
         tagListView.marginX = 5.0
-        tagListView.paddingX = 10.0
+        tagListView.paddingX = 15.0
         tagListView.tagLineBreakMode = .byWordWrapping
         tagListView.delegate = self
         tagListView.removeAllTags()
@@ -190,8 +192,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.layer.addSublayer(layer)
         
         ToastManager.shared.style.verticalPadding = 40.0
-        
-        sceneView.makeToast("Move your iPhone and aim at an object\nPlace object in the blue frame and tap screen", duration: 3.0, position: .top)
     }
     
     override func didReceiveMemoryWarning() {
@@ -225,32 +225,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // MARK: - Interaction
     
     @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
-        
         let image = screenshotAction()
-        
-//        ImageClassifyHelper.shared.uploadImage(image) {
-//            print($0)
-//        }
-        
-//        let screenCenter = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
-//        let arHitTestResults: [ARHitTestResult] = sceneView.hitTest(screenCenter, types: [.featurePoint])
-        
-//        if let closestResult = arHitTestResults.first {
-//            // Get Coordinates of HitTest
-//            let transform: matrix_float4x4 = closestResult.worldTransform
-//            var currentPosition: SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
-//
-//            ImageClassifier.shared.classify(withUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Pembroke_Welsh_Corgi_frontal.jpg/912px-Pembroke_Welsh_Corgi_frontal.jpg", completion: {
-//                print($0.map { ($0.name, $0.score) })
-//
-//                for tuple in $0 {
-//                    let lastNode = self.addNode(with: tuple.name, at: currentPosition)
-//                    let boxNode = lastNode.childNode(withName: "backgroundNode", recursively: true)
-//                    let box = boxNode?.geometry as? SCNBox
-//                    currentPosition.x += Float(((box?.width)! / 2 + 0.05))
-//                }
-//            })
-//        }
         
         let screenCenter: CGPoint = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
 
@@ -326,11 +301,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     UserDefaults.standard.synchronize()
                     
                     WikipediaHelper.shared.getURL(from: String(model.pageid), completion: { url in
-                        DispatchQueue.main.async {
-                            self.cameraAnimation.isHidden = true
-                            self.sceneView.isUserInteractionEnabled = true
-                        }
-                        
                         self.dataItems.firstItemClickAction = {
                             guard let url = url else { return }
                             let detailVC = DataItemDetailViewController()

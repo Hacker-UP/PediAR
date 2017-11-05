@@ -23,6 +23,7 @@
 		24266E0F1FAD9E7400774E26 /* WikipediaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266E0E1FAD9E7400774E26 /* WikipediaHelper.swift */; };
 		24266E141FADA06400774E26 /* WikiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24266E131FADA06400774E26 /* WikiModel.swift */; };
 		24266E271FADADCA00774E26 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 24266E261FADADCA00774E26 /* art.scnassets */; };
+		2477306A1FAE93C7004CCA4A /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247730691FAE93BA004CCA4A /* Photos.framework */; };
 		24DDFCCD1FACCC5B004DF2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */; };
 		24DDFCD41FACCC5B004DF2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCD21FACCC5B004DF2E8 /* Main.storyboard */; };
 		24DDFCD61FACCC5B004DF2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFCD51FACCC5B004DF2E8 /* Assets.xcassets */; };
@@ -134,6 +135,7 @@
 		24266E0E1FAD9E7400774E26 /* WikipediaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaHelper.swift; sourceTree = "<group>"; };
 		24266E131FADA06400774E26 /* WikiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiModel.swift; sourceTree = "<group>"; };
 		24266E261FADADCA00774E26 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		247730691FAE93BA004CCA4A /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		24DDFCC91FACCC5B004DF2E8 /* PediAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PediAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DDFCCC1FACCC5B004DF2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24DDFCD31FACCC5B004DF2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2477306A1FAE93C7004CCA4A /* Photos.framework in Frameworks */,
 				24266E0D1FAD944500774E26 /* NaturalLanguageUnderstandingV1.framework in Frameworks */,
 				24266DAD1FAD589D00774E26 /* VisualRecognitionV3.framework in Frameworks */,
 				D259A91434870E7C30D6729A /* Pods_PediAR.framework in Frameworks */,
@@ -342,6 +345,7 @@
 		37DF24D07E464C7753568A37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				247730691FAE93BA004CCA4A /* Photos.framework */,
 				24266DBB1FAD923A00774E26 /* Build */,
 				24266E0B1FAD93FD00774E26 /* NaturalLanguageUnderstandingV1.framework */,
 				24266DA81FAD544400774E26 /* VisualRecognitionV3.framework */,
@@ -426,6 +430,7 @@
 				TargetAttributes = {
 					24DDFCC81FACCC5B004DF2E8 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -712,8 +717,9 @@
 			baseConfigurationReference = A8DF234C2706D9E504B574C9 /* Pods-PediAR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DNL5G5M9A8;
+				DEVELOPMENT_TEAM = VEBQ28K9EA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -732,8 +738,9 @@
 			baseConfigurationReference = EE674ED64337DC24A639D355 /* Pods-PediAR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DNL5G5M9A8;
+				DEVELOPMENT_TEAM = VEBQ28K9EA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

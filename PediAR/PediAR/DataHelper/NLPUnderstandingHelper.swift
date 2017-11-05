@@ -32,7 +32,7 @@ class NLPUnderstandingHelper: NSObject {
         let failure = { (error: Error) in print(error) }
         naturalLanguageUnderstanding.analyze(parameters: parameters, failure: failure, success: {
             results in
-            completion((results.concepts?.map { $0.text! })!)
+            completion(results.concepts?.map { $0.text ?? "" } ?? [])
         })
     }
     
