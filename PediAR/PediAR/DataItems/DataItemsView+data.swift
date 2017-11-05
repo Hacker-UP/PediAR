@@ -11,6 +11,16 @@ import UIKit
 // MARK: Data Creater
 extension DataItemView {
     
+    public func getData(array: [String]) {
+        var data: [DataItemCollectionViewCellModel] = []
+        for url in array {
+            let item = DataItemCollectionViewCellModel()
+            item.imageUrl = url
+            data.append(item)
+        }
+        self.viewModels = data
+    }
+    
     public func getData(by name: String) {
         if name.components(separatedBy: "mouse").count > 1 {
             self.viewModels = DataItemView.getMouseData()

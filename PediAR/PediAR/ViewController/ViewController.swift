@@ -297,6 +297,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 // 修改 data
                 dataItems.getData(by: title)
                 
+                ImageClassifyHelper.shared.getImage(with: title, completion: { (strs) in
+                    DispatchQueue.main.async {
+                        self.dataItems.getData(array: strs)
+                    }
+                })
+                
                 WikipediaHelper.shared.getSummary(of: title) { model in
                     
                     guard let model = model else {
@@ -437,6 +443,7 @@ extension ViewController {
         
         let imageView = UIImageView(frame: CGRect(x: 0, y: 70, width: 150, height: 150))
         imageView.image = image
+        imageView.alpha = 0
         imageView.contentMode = .scaleAspectFill
         sceneView.addSubview(imageView)
         

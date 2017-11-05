@@ -8,6 +8,7 @@
 
 import UIKit
 import VisualRecognitionV3
+import SwiftyJSON
 
 
 class ImageClassifyHelper: NSObject {
@@ -49,6 +50,25 @@ class ImageClassifyHelper: NSObject {
         let failure = { (error: Error) in print(error) }
         visualRecognition.classify(image: url, language: "en", failure: failure) { classifiedImages in
             completion((classifiedImages.images.first?.classifiers.first?.classes.map { ($0.classification, $0.score) })!)
+        }
+    }
+    
+    func getImage(with name: String, completion: @escaping ([String]) -> ()) {
+        let urlstr = "http://139.198.190.108:8086/?word=\(name)"
+        if let url = URL(string: urlstr.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) {
+            let session = URLSession(configuration: .default)
+            session.dataTask(with: url) { (data, _, err) in
+                guard let data = data else {
+                    return
+                }
+                guard let res = String.init(data: data, encoding: String.Encoding.utf8) else {
+                    return
+                }
+                let datas = res.split(separator: "\n").map(String.init)
+                if datas.count > 0 {
+                    completion(datas)
+                }
+            }.resume()
         }
     }
     
