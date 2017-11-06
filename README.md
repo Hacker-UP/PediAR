@@ -2,7 +2,11 @@
 
 Tap the screen, Know the world.
 
-<img src = 'https://github.com/Hacker-UP/PediAR/blob/master/ScreenShot.png' width = 500/>
+# Demo & Preview
+
+* [Demo](http://v.youku.com/v_show/id_XMzEzNTU1NDUzMg==.html?spm=a2h3j.8428770.3416059.1)
+
+<img src = 'https://github.com/Hacker-UP/PediAR/blob/master/ScreenShot.png' width = 300/>
 
 ## 简介
 
@@ -10,7 +14,7 @@ Tap the screen, Know the world.
 
 # Introduction
 
-There are many things we absolutely ignorant in life. PediAR is a AR App based on iOS platform, which uses IBM Waston to identify objects pointing. And through the aggregation of QingCloud cloud server, search accurate information on the Wikipedia, to help users accurately understand those unknown things in life. PediAR is a real general material Wikipedia book. And its accurate Web link function can also be extended to other industries, such as cognitive products.
+There are many things we absolutely ignorant in life. PediAR is a AR App based on iOS platform, which uses IBM Watson to identify objects pointing. And through the aggregation of QingCloud cloud server, search accurate information on the Wikipedia, to help users accurately understand those unknown things in life. PediAR is a real general material Wikipedia book. And its accurate Web link function can also be extended to other industries, such as cognitive products.
 
 ## 创意来源
 
@@ -18,11 +22,11 @@ There are many things we absolutely ignorant in life. PediAR is a AR App based o
 
 ## Idea Source
 
-20 years ago, the Internet era was not yet born, people obtain knowledge and limited access to a single. Common way is an encyclopedia, dictionary or ask others to query. Encyclopedia of the multitude and personal knowledge is limited, people is often unable to obtain the knowledge they want. When the advent of the Internet, people's knowledge acquisition efficiency is greatly improved, but when we want to get something related knowledge, must know in advance some key words of the things or other features to search on the internet. Therefore, PediAR iOS App arises at the historic moment. PediAR by IBM Waston, accurate recognition and access to relevant keywords mobile phone camera before the object, the WikiPedia data aggregation using QingCloud cloud server, using AR stack will come from the knowledge of the Internet and the real environment, thus changing the way to acquire knowledge, enhance the efficiency of knowledge acquisition. In a word, this is an encyclopedia that can recognize the real world, retrieve it quickly, and use AR to interact with the real world. 
+20 years ago, the Internet era was not yet born, people obtain knowledge and limited access to a single. Common way is an encyclopedia, dictionary or ask others to query. Encyclopedia of the multitude and personal knowledge is limited, people is often unable to obtain the knowledge they want. When the advent of the Internet, people's knowledge acquisition efficiency is greatly improved, but when we want to get something related knowledge, must know in advance some key words of the things or other features to search on the internet. Therefore, PediAR iOS App arises at the historic moment. PediAR by IBM Watson, accurate recognition and access to relevant keywords mobile phone camera before the object, the WikiPedia data aggregation using QingCloud cloud server, using AR stack will come from the knowledge of the Internet and the real environment, thus changing the way to acquire knowledge, enhance the efficiency of knowledge acquisition. In a word, this is an encyclopedia that can recognize the real world, retrieve it quickly, and use AR to interact with the real world. 
 
 ## Purpose
 
-降低获取知识的门槛，提升获取知识的效率，，通过 AR 在真实视觉中添加识物标签。 
+降低获取知识的门槛，提升获取知识的效率。寓教于乐，通过 AR 在真实视觉中添加识物标签。
 
 ## How to Use
 
@@ -30,7 +34,7 @@ There are many things we absolutely ignorant in life. PediAR is a AR App based o
 
 # Instruction
 
-## Prerequisities
+## Prerequisites
 
 * Xcode 9.0+
 * iOS 11.0+
